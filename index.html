@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="LuxuryFlow — Indumentaria premium con estilo minimalista y materiales de alta calidad. Descubrí la nueva colección." />
+  <meta name="description" content="LuxuryFlow — Indumentaria premium con estilo minimalista y materiales de alta calidad." />
   <title>LuxuryFlow — Premium Clothing</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,152 +13,53 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#home" class="navbar__logo">Luxury<span>Flow</span></a>
-
       <ul class="navbar__links">
         <li><a href="#home" class="navbar__link active" data-section="home">Home</a></li>
-        <li><a href="#about" class="navbar__link" data-section="about">Nosotros</a></li>
-        <li><a href="#featured" class="navbar__link" data-section="featured">Destacados</a></li>
         <li><a href="#products" class="navbar__link" data-section="products">Productos</a></li>
-        <li><a href="#newsletter" class="navbar__link" data-section="newsletter">Contacto</a></li>
       </ul>
-
       <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
     </div>
-
-    <!-- Mobile Menu -->
     <div class="navbar__mobile-menu" id="mobileMenu">
       <a href="#home" class="navbar__link" data-section="home">Home</a>
-      <a href="#about" class="navbar__link" data-section="about">Nosotros</a>
-      <a href="#featured" class="navbar__link" data-section="featured">Destacados</a>
       <a href="#products" class="navbar__link" data-section="products">Productos</a>
-      <a href="#newsletter" class="navbar__link" data-section="newsletter">Contacto</a>
     </div>
   </nav>
+
+  <!-- ========== ADMIN BAR ========== -->
+  <div class="admin-bar" id="adminBar">
+    <div class="container">
+      <div class="admin-bar__left">
+        <div class="admin-bar__indicator"></div>
+        <span class="admin-bar__text">Panel Admin <span>— Modo edición activo</span></span>
+      </div>
+      <div class="admin-bar__actions">
+        <button class="btn--admin btn--admin-accent" id="btnAddProduct">
+          + Agregar producto
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ========== HERO ========== -->
   <section class="hero" id="home">
     <div class="hero__bg-gradient"></div>
     <div class="hero__content container">
-      <p class="hero__tagline">Nueva Colección 2026</p>
+      <p class="hero__tagline">Nueva Colección</p>
       <h1 class="hero__title">Estilo que<br /><em>fluye natural</em></h1>
       <p class="hero__subtitle">
         Prendas diseñadas para quienes entienden que la elegancia está en los detalles.
-        Materiales premium, cortes impecables.
       </p>
       <div class="hero__actions">
         <a href="#products" class="btn btn--primary">
-          Explorar colección <span class="btn__arrow">→</span>
+          Ver productos <span class="btn__arrow">→</span>
         </a>
-        <a href="#about" class="btn btn--secondary">Conocer más</a>
       </div>
     </div>
     <div class="hero__scroll-indicator">
       <span>Scroll</span>
       <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ========== MARQUEE STRIP ========== -->
-  <div class="marquee-strip" aria-hidden="true">
-    <div class="marquee-strip__track">
-      <span class="marquee-strip__item">Envío Gratis</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Calidad Premium</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Diseño Exclusivo</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Devolución Fácil</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Atención Personalizada</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Envío Gratis</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Calidad Premium</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Diseño Exclusivo</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Devolución Fácil</span>
-      <span class="marquee-strip__item">·</span>
-      <span class="marquee-strip__item">Atención Personalizada</span>
-      <span class="marquee-strip__item">·</span>
-    </div>
-  </div>
-
-  <!-- ========== ABOUT ========== -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about__image-wrapper reveal">
-        <img
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80"
-          alt="LuxuryFlow — Estilo premium"
-          loading="lazy"
-        />
-      </div>
-      <div class="about__content">
-        <p class="about__label reveal">Nuestra Esencia</p>
-        <h2 class="about__title reveal reveal-delay-1">
-          Diseñamos para quienes<br />valoran lo auténtico
-        </h2>
-        <p class="about__text reveal reveal-delay-2">
-          En LuxuryFlow creemos que la ropa es una extensión de tu identidad.
-          Cada prenda nace de una obsesión por los detalles: telas seleccionadas,
-          costuras invisibles y siluetas que respetan tu forma.
-        </p>
-        <p class="about__text reveal reveal-delay-3">
-          No seguimos tendencias — las anticipamos. Nuestras colecciones son
-          atemporales, pensadas para acompañarte temporada tras temporada.
-        </p>
-        <div class="about__stats reveal reveal-delay-4">
-          <div>
-            <div class="about__stat-number">250+</div>
-            <div class="about__stat-label">Diseños únicos</div>
-          </div>
-          <div>
-            <div class="about__stat-number">15K</div>
-            <div class="about__stat-label">Clientes felices</div>
-          </div>
-          <div>
-            <div class="about__stat-number">100%</div>
-            <div class="about__stat-label">Calidad garantizada</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FEATURED ========== -->
-  <section class="featured" id="featured">
-    <div class="container">
-      <div class="featured__header reveal">
-        <p class="featured__label">Colecciones Destacadas</p>
-        <h2 class="featured__title">Lo mejor de esta temporada</h2>
-      </div>
-      <div class="featured__grid">
-        <div class="featured__card reveal reveal-delay-1">
-          <img
-            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80"
-            alt="Colección Urban"
-            loading="lazy"
-          />
-          <div class="featured__card-overlay">
-            <h3 class="featured__card-title">Urban Essentials</h3>
-            <p class="featured__card-subtitle">Básicos elevados para el día a día</p>
-          </div>
-        </div>
-        <div class="featured__card reveal reveal-delay-2">
-          <img
-            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80"
-            alt="Colección Night"
-            loading="lazy"
-          />
-          <div class="featured__card-overlay">
-            <h3 class="featured__card-title">Night Edition</h3>
-            <p class="featured__card-subtitle">Elegancia para la noche</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -170,213 +71,28 @@
           <p class="products__label">Productos</p>
           <h2 class="products__title">Nuestra selección</h2>
         </div>
-        <div class="products__filters">
-          <button class="products__filter-btn active" data-filter="all">Todos</button>
-          <button class="products__filter-btn" data-filter="remeras">Remeras</button>
-          <button class="products__filter-btn" data-filter="buzos">Buzos</button>
-          <button class="products__filter-btn" data-filter="pantalones">Pantalones</button>
-          <button class="products__filter-btn" data-filter="accesorios">Accesorios</button>
+        <div class="products__filters" id="productFilters">
+          <!-- Filters rendered by JS -->
         </div>
       </div>
-
-      <div class="products__grid">
-
-        <!-- Product 1 -->
-        <article class="product-card reveal reveal-delay-1" data-category="remeras">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80"
-              alt="Remera Classic White"
-              loading="lazy"
-            />
-            <span class="product-card__badge">Nuevo</span>
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Remeras</p>
-            <h3 class="product-card__name">Classic White Tee</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$12.500</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 2 -->
-        <article class="product-card reveal reveal-delay-2" data-category="buzos">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80"
-              alt="Buzo Oversize Noir"
-              loading="lazy"
-            />
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Buzos</p>
-            <h3 class="product-card__name">Oversize Noir Hoodie</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$28.900</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 3 -->
-        <article class="product-card reveal reveal-delay-3" data-category="pantalones">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80"
-              alt="Pantalón Slim Essential"
-              loading="lazy"
-            />
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Pantalones</p>
-            <h3 class="product-card__name">Slim Essential Pant</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$22.400</span>
-              <span class="product-card__price--old">$26.900</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 4 -->
-        <article class="product-card reveal reveal-delay-4" data-category="accesorios">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&q=80"
-              alt="Gorra Minimal Cap"
-              loading="lazy"
-            />
-            <span class="product-card__badge">Best Seller</span>
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Accesorios</p>
-            <h3 class="product-card__name">Minimal Cap</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$8.900</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 5 -->
-        <article class="product-card reveal reveal-delay-1" data-category="remeras">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80"
-              alt="Remera Oversize Sand"
-              loading="lazy"
-            />
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Remeras</p>
-            <h3 class="product-card__name">Oversize Sand Tee</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$13.200</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 6 -->
-        <article class="product-card reveal reveal-delay-2" data-category="buzos">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1578768079470-ea4ae205d7a1?w=600&q=80"
-              alt="Buzo Zip Concrete"
-              loading="lazy"
-            />
-            <span class="product-card__badge">-20%</span>
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Buzos</p>
-            <h3 class="product-card__name">Zip Concrete Hoodie</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$24.500</span>
-              <span class="product-card__price--old">$30.600</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 7 -->
-        <article class="product-card reveal reveal-delay-3" data-category="pantalones">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80"
-              alt="Pantalón Cargo Flow"
-              loading="lazy"
-            />
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Pantalones</p>
-            <h3 class="product-card__name">Cargo Flow Pant</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$25.800</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 8 -->
-        <article class="product-card reveal reveal-delay-4" data-category="remeras">
-          <div class="product-card__image">
-            <img
-              src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80"
-              alt="Remera Graphic Essence"
-              loading="lazy"
-            />
-            <span class="product-card__badge">Nuevo</span>
-            <button class="product-card__quick-add" aria-label="Agregar al carrito">+</button>
-          </div>
-          <div class="product-card__info">
-            <p class="product-card__category">Remeras</p>
-            <h3 class="product-card__name">Graphic Essence Tee</h3>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$14.900</span>
-            </div>
-          </div>
-        </article>
-
+      <div class="products__grid" id="productsGrid">
+        <!-- Products rendered by JS -->
       </div>
     </div>
   </section>
 
-  <!-- ========== BANNER CTA ========== -->
+  <!-- ========== BANNER ========== -->
   <section class="banner reveal">
     <div class="banner__bg-circle"></div>
     <div class="container">
-      <p class="banner__label">Colección Limitada</p>
+      <p class="banner__label">LuxuryFlow</p>
       <h2 class="banner__title">Prendas que hablan<br />sin decir una palabra</h2>
       <p class="banner__text">
-        Cada pieza de nuestra edición limitada está numerada y fabricada
-        con los mejores materiales del mundo.
+        Elegancia sin esfuerzo, calidad sin compromiso.
       </p>
       <a href="#products" class="btn btn--white">
-        Descubrir ahora <span class="btn__arrow">→</span>
+        Explorar <span class="btn__arrow">→</span>
       </a>
-    </div>
-  </section>
-
-  <!-- ========== NEWSLETTER ========== -->
-  <section class="newsletter" id="newsletter">
-    <div class="container reveal">
-      <h2 class="newsletter__title">Sé el primero en saber</h2>
-      <p class="newsletter__text">
-        Suscribite y recibí acceso anticipado a nuevos lanzamientos y ofertas exclusivas.
-      </p>
-      <form class="newsletter__form" id="newsletterForm">
-        <input
-          type="email"
-          class="newsletter__input"
-          id="emailInput"
-          placeholder="Tu email"
-          required
-          autocomplete="email"
-        />
-        <button type="submit" class="btn btn--primary">Suscribirse</button>
-      </form>
     </div>
   </section>
 
@@ -388,35 +104,25 @@
           <div class="footer__brand-name">LuxuryFlow</div>
           <p class="footer__brand-text">
             Indumentaria premium con diseño minimalista.
-            Elegancia sin esfuerzo, calidad sin compromiso.
           </p>
         </div>
         <div>
           <h4 class="footer__col-title">Tienda</h4>
           <div class="footer__col-links">
-            <a href="#products">Nuevos ingresos</a>
-            <a href="#products">Remeras</a>
-            <a href="#products">Buzos & Hoodies</a>
-            <a href="#products">Pantalones</a>
-            <a href="#products">Accesorios</a>
+            <a href="#products">Todos los productos</a>
           </div>
         </div>
         <div>
           <h4 class="footer__col-title">Empresa</h4>
           <div class="footer__col-links">
-            <a href="#about">Nosotros</a>
-            <a href="#">Sustentabilidad</a>
-            <a href="#">Trabajá con nosotros</a>
-            <a href="#">Prensa</a>
+            <a href="#home">Inicio</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__col-title">Ayuda</h4>
+          <h4 class="footer__col-title">Redes</h4>
           <div class="footer__col-links">
-            <a href="#">Preguntas frecuentes</a>
-            <a href="#">Envíos</a>
-            <a href="#">Devoluciones</a>
-            <a href="#">Contacto</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
           </div>
         </div>
       </div>
@@ -426,9 +132,6 @@
           <a href="#" class="footer__social-link" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="#" class="footer__social-link" aria-label="Twitter / X">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
-          </a>
           <a href="#" class="footer__social-link" aria-label="TikTok">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
           </a>
@@ -437,17 +140,174 @@
     </div>
   </footer>
 
+  <!-- ========== ADMIN FAB ========== -->
+  <button class="admin-fab" id="adminFab" aria-label="Panel de administración" title="Panel Admin">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+  </button>
+
+  <!-- ========== TOAST ========== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ========== PRODUCT MODAL ========== -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modalTitle">Agregar producto</h3>
+        <button class="modal__close" id="modalClose">✕</button>
+      </div>
+      <div class="modal__body">
+        <form id="productForm">
+          <input type="hidden" id="productId" />
+
+          <div class="form-group">
+            <label class="form-label">Imagen del producto</label>
+            <div class="form-image-upload" id="imageUploadZone">
+              <input type="file" accept="image/*" id="productImage" />
+              <div id="imageUploadContent">
+                <div class="form-image-upload__icon">📷</div>
+                <p class="form-image-upload__text">
+                  <strong>Hacé clic</strong> o arrastrá una imagen
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="productName">Nombre</label>
+            <input type="text" class="form-input" id="productName" placeholder="Ej: Remera Oversize" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="productCategory">Categoría</label>
+              <select class="form-select" id="productCategory" required>
+                <option value="">Seleccionar...</option>
+                <option value="Remeras">Remeras</option>
+                <option value="Buzos">Buzos</option>
+                <option value="Pantalones">Pantalones</option>
+                <option value="Camperas">Camperas</option>
+                <option value="Accesorios">Accesorios</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="productBadge">Etiqueta (opcional)</label>
+              <input type="text" class="form-input" id="productBadge" placeholder="Ej: Nuevo, -20%" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="productPrice">Precio</label>
+              <input type="text" class="form-input" id="productPrice" placeholder="Ej: $12.500" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="productOldPrice">Precio anterior (opcional)</label>
+              <input type="text" class="form-input" id="productOldPrice" placeholder="Ej: $15.000" />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn--secondary btn--small" id="modalCancel">Cancelar</button>
+            <button type="submit" class="btn btn--primary btn--small" id="modalSubmit">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CONFIRM MODAL ========== -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal modal--confirm">
+      <div class="modal__body">
+        <div class="confirm-icon">🗑️</div>
+        <p class="confirm-text">¿Estás seguro de eliminar<br /><span class="confirm-name" id="confirmName"></span>?</p>
+        <p class="confirm-text" style="font-size:0.82rem; opacity:0.7;">Esta acción no se puede deshacer.</p>
+        <div class="form-actions">
+          <button class="btn btn--secondary btn--small" id="confirmCancel">Cancelar</button>
+          <button class="btn btn--danger btn--small" id="confirmDelete">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // ---------- Navbar scroll effect ----------
-    const navbar = document.getElementById('navbar');
+    /* ==============================================
+       DATA LAYER — localStorage persistence
+       ============================================== */
+    const STORAGE_KEY = 'luxuryflow_products';
+
+    function loadProducts() {
+      try {
+        const data = localStorage.getItem(STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch { return []; }
+    }
+
+    function saveProducts(products) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+    }
+
+    function generateId() {
+      return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    }
+
+    /* ==============================================
+       APP STATE
+       ============================================== */
+    let products = loadProducts();
+    let adminMode = false;
+    let currentFilter = 'Todos';
+    let editingProductId = null;
+    let deletingProductId = null;
+    let tempImageData = null;
+
+    /* ==============================================
+       DOM REFERENCES
+       ============================================== */
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => document.querySelectorAll(sel);
+
+    const navbar = $('#navbar');
+    const navToggle = $('#navToggle');
+    const mobileMenu = $('#mobileMenu');
+    const adminFab = $('#adminFab');
+    const adminBar = $('#adminBar');
+    const btnAddProduct = $('#btnAddProduct');
+    const productsGrid = $('#productsGrid');
+    const productFilters = $('#productFilters');
+
+    // Product modal
+    const productModal = $('#productModal');
+    const modalTitle = $('#modalTitle');
+    const modalClose = $('#modalClose');
+    const modalCancel = $('#modalCancel');
+    const productForm = $('#productForm');
+    const inputId = $('#productId');
+    const inputName = $('#productName');
+    const inputCategory = $('#productCategory');
+    const inputBadge = $('#productBadge');
+    const inputPrice = $('#productPrice');
+    const inputOldPrice = $('#productOldPrice');
+    const inputImage = $('#productImage');
+    const imageUploadZone = $('#imageUploadZone');
+    const imageUploadContent = $('#imageUploadContent');
+
+    // Confirm modal
+    const confirmModal = $('#confirmModal');
+    const confirmName = $('#confirmName');
+    const confirmCancel = $('#confirmCancel');
+    const confirmDelete = $('#confirmDelete');
+
+    // Toast
+    const toast = $('#toast');
+
+    /* ==============================================
+       NAVBAR
+       ============================================== */
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
-
-    // ---------- Mobile menu ----------
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
 
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('open');
@@ -463,76 +323,327 @@
       });
     });
 
-    // ---------- Active nav link on scroll ----------
+    // Active link
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.navbar__link[data-section]');
-
-    function updateActiveLink() {
+    const navLinks = $$('.navbar__link[data-section]');
+    window.addEventListener('scroll', () => {
       let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) {
-          current = section.getAttribute('id');
-        }
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
       });
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.dataset.section === current);
-      });
-    }
-    window.addEventListener('scroll', updateActiveLink);
+      navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === current));
+    });
 
-    // ---------- Scroll reveal ----------
-    const revealElements = document.querySelectorAll('.reveal');
+    /* ==============================================
+       SCROLL REVEAL
+       ============================================== */
     const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+      }),
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
-    revealElements.forEach(el => revealObserver.observe(el));
+    $$('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ---------- Product filter ----------
-    const filterBtns = document.querySelectorAll('.products__filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
+    /* ==============================================
+       ADMIN MODE
+       ============================================== */
+    adminFab.addEventListener('click', () => {
+      adminMode = !adminMode;
+      document.body.classList.toggle('admin-mode', adminMode);
+      adminFab.classList.toggle('active', adminMode);
+      adminBar.classList.toggle('visible', adminMode);
+      showToast(adminMode ? '⚙️ Modo admin activado' : '👁️ Modo visualización');
+    });
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
+    btnAddProduct.addEventListener('click', () => openProductModal());
 
-        productCards.forEach(card => {
-          const show = filter === 'all' || card.dataset.category === filter;
-          card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-          if (show) {
-            card.style.display = '';
-            requestAnimationFrame(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
-            });
-          } else {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(16px)';
-            setTimeout(() => { card.style.display = 'none'; }, 350);
-          }
+    /* ==============================================
+       TOAST
+       ============================================== */
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('visible'), 2500);
+    }
+
+    /* ==============================================
+       PRODUCT MODAL
+       ============================================== */
+    function openProductModal(product = null) {
+      editingProductId = product ? product.id : null;
+      modalTitle.textContent = product ? 'Editar producto' : 'Agregar producto';
+      $('#modalSubmit').textContent = product ? 'Actualizar' : 'Guardar';
+
+      // Fill form
+      inputId.value = product ? product.id : '';
+      inputName.value = product ? product.name : '';
+      inputCategory.value = product ? product.category : '';
+      inputBadge.value = product ? (product.badge || '') : '';
+      inputPrice.value = product ? product.price : '';
+      inputOldPrice.value = product ? (product.oldPrice || '') : '';
+
+      // Image
+      tempImageData = product ? product.image : null;
+      updateImagePreview();
+
+      productModal.classList.add('visible');
+    }
+
+    function closeProductModal() {
+      productModal.classList.remove('visible');
+      productForm.reset();
+      tempImageData = null;
+      editingProductId = null;
+      updateImagePreview();
+    }
+
+    modalClose.addEventListener('click', closeProductModal);
+    modalCancel.addEventListener('click', closeProductModal);
+    productModal.addEventListener('click', (e) => {
+      if (e.target === productModal) closeProductModal();
+    });
+
+    // Image upload
+    inputImage.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        tempImageData = ev.target.result;
+        updateImagePreview();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function updateImagePreview() {
+      if (tempImageData) {
+        imageUploadZone.classList.add('has-image');
+        imageUploadContent.innerHTML = `
+          <img class="form-image-upload__preview" src="${tempImageData}" alt="Preview" />
+          <button type="button" class="form-image-upload__remove" id="removeImage">✕</button>
+        `;
+        const removeBtn = $('#removeImage');
+        if (removeBtn) {
+          removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            tempImageData = null;
+            inputImage.value = '';
+            updateImagePreview();
+          });
+        }
+      } else {
+        imageUploadZone.classList.remove('has-image');
+        imageUploadContent.innerHTML = `
+          <div class="form-image-upload__icon">📷</div>
+          <p class="form-image-upload__text"><strong>Hacé clic</strong> o arrastrá una imagen</p>
+        `;
+      }
+    }
+
+    // Form submit
+    productForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const productData = {
+        id: editingProductId || generateId(),
+        name: inputName.value.trim(),
+        category: inputCategory.value,
+        badge: inputBadge.value.trim(),
+        price: inputPrice.value.trim(),
+        oldPrice: inputOldPrice.value.trim(),
+        image: tempImageData,
+        createdAt: editingProductId
+          ? (products.find(p => p.id === editingProductId)?.createdAt || Date.now())
+          : Date.now(),
+      };
+
+      if (editingProductId) {
+        const idx = products.findIndex(p => p.id === editingProductId);
+        if (idx !== -1) products[idx] = productData;
+        showToast('✅ Producto actualizado');
+      } else {
+        products.unshift(productData);
+        showToast('✅ Producto agregado');
+      }
+
+      saveProducts(products);
+      renderProducts();
+      renderFilters();
+      closeProductModal();
+    });
+
+    /* ==============================================
+       CONFIRM DELETE MODAL
+       ============================================== */
+    function openConfirmModal(productId) {
+      deletingProductId = productId;
+      const product = products.find(p => p.id === productId);
+      confirmName.textContent = product ? product.name : '';
+      confirmModal.classList.add('visible');
+    }
+
+    function closeConfirmModal() {
+      confirmModal.classList.remove('visible');
+      deletingProductId = null;
+    }
+
+    confirmCancel.addEventListener('click', closeConfirmModal);
+    confirmModal.addEventListener('click', (e) => {
+      if (e.target === confirmModal) closeConfirmModal();
+    });
+
+    confirmDelete.addEventListener('click', () => {
+      if (deletingProductId) {
+        products = products.filter(p => p.id !== deletingProductId);
+        saveProducts(products);
+        renderProducts();
+        renderFilters();
+        showToast('🗑️ Producto eliminado');
+      }
+      closeConfirmModal();
+    });
+
+    /* ==============================================
+       RENDER FILTERS
+       ============================================== */
+    function getCategories() {
+      const cats = new Set(products.map(p => p.category));
+      return ['Todos', ...Array.from(cats).sort()];
+    }
+
+    function renderFilters() {
+      const categories = getCategories();
+      productFilters.innerHTML = '';
+
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'products__filter-btn' + (cat === currentFilter ? ' active' : '');
+        btn.textContent = cat;
+        btn.addEventListener('click', () => {
+          currentFilter = cat;
+          renderFilters();
+          renderProducts();
+        });
+        productFilters.appendChild(btn);
+      });
+    }
+
+    /* ==============================================
+       RENDER PRODUCTS
+       ============================================== */
+    function renderProducts() {
+      const filtered = currentFilter === 'Todos'
+        ? products
+        : products.filter(p => p.category === currentFilter);
+
+      productsGrid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        productsGrid.innerHTML = `
+          <div class="products__empty">
+            <div class="products__empty-icon">✦</div>
+            <h3 class="products__empty-title">${products.length === 0 ? 'Sin productos aún' : 'Sin resultados'}</h3>
+            <p class="products__empty-text">
+              ${products.length === 0
+                ? 'Activá el modo admin con el botón ⚙️ y agregá tu primer producto.'
+                : 'No hay productos en esta categoría.'
+              }
+            </p>
+            ${products.length === 0 && !adminMode
+              ? '<button class="btn btn--primary btn--small" onclick="document.getElementById(\'adminFab\').click()">Activar Admin</button>'
+              : ''
+            }
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((product, index) => {
+        const card = document.createElement('article');
+        card.className = 'product-card reveal';
+        card.style.transitionDelay = `${(index % 4) * 0.1}s`;
+
+        const imageContent = product.image
+          ? `<img src="${product.image}" alt="${product.name}" loading="lazy" />`
+          : `<div class="product-card__no-image">
+               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+               Sin imagen
+             </div>`;
+
+        const badgeHTML = product.badge
+          ? `<span class="product-card__badge">${product.badge}</span>`
+          : '';
+
+        const oldPriceHTML = product.oldPrice
+          ? `<span class="product-card__price--old">${product.oldPrice}</span>`
+          : '';
+
+        card.innerHTML = `
+          <div class="product-card__admin-actions">
+            <button class="product-card__admin-btn" data-edit="${product.id}" title="Editar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+            </button>
+            <button class="product-card__admin-btn product-card__admin-btn--delete" data-delete="${product.id}" title="Eliminar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+            </button>
+          </div>
+          <div class="product-card__image">
+            ${imageContent}
+            ${badgeHTML}
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__category">${product.category}</p>
+            <h3 class="product-card__name">${product.name}</h3>
+            <div class="product-card__price-row">
+              <span class="product-card__price">${product.price}</span>
+              ${oldPriceHTML}
+            </div>
+          </div>
+        `;
+
+        productsGrid.appendChild(card);
+
+        // Trigger reveal
+        requestAnimationFrame(() => {
+          revealObserver.observe(card);
         });
       });
-    });
 
-    // ---------- Newsletter form ----------
-    document.getElementById('newsletterForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = document.getElementById('emailInput');
-      if (input.value) {
-        alert('¡Gracias por suscribirte! Te mantendremos informado.');
-        input.value = '';
+      // Bind admin actions
+      productsGrid.querySelectorAll('[data-edit]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const product = products.find(p => p.id === btn.dataset.edit);
+          if (product) openProductModal(product);
+        });
+      });
+
+      productsGrid.querySelectorAll('[data-delete]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openConfirmModal(btn.dataset.delete);
+        });
+      });
+    }
+
+    /* ==============================================
+       KEYBOARD SHORTCUTS
+       ============================================== */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (confirmModal.classList.contains('visible')) closeConfirmModal();
+        else if (productModal.classList.contains('visible')) closeProductModal();
       }
     });
+
+    /* ==============================================
+       INIT
+       ============================================== */
+    renderFilters();
+    renderProducts();
   </script>
 
 </body>
