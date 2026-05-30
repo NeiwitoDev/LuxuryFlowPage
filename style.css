@@ -1,39 +1,51 @@
 /* ========================================
    LuxuryFlow — Premium Clothing Brand
-   Apple-inspired minimalist design
+   Dark Luxury Theme with Gold Accents
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 /* ---------- CSS Variables ---------- */
 :root {
-  --color-bg:        #fbfbfd;
-  --color-bg-alt:    #f5f5f7;
-  --color-surface:   #ffffff;
-  --color-text:      #1d1d1f;
-  --color-text-sec:  #6e6e73;
-  --color-text-ter:  #86868b;
-  --color-border:    #d2d2d7;
-  --color-accent:    #1d1d1f;
-  --color-accent-hover: #424245;
-  --color-danger:    #c53030;
-  --color-danger-hover: #9b2c2c;
+  /* Dark luxury palette */
+  --color-bg:         #0a0a0a;
+  --color-bg-alt:     #111111;
+  --color-surface:    #141414;
+  --color-surface-2:  #1a1a1a;
+  --color-text:       #f0f0f0;
+  --color-text-sec:   #8a8a8a;
+  --color-text-ter:   #5a5a5a;
+  --color-border:     #2a2a2a;
+  --color-border-hover: #3a3a3a;
+
+  /* Gold accent */
+  --color-gold:       #c9a84c;
+  --color-gold-light: #dfc06f;
+  --color-gold-dark:  #a88a3a;
+  --color-gold-glow:  rgba(201, 168, 76, 0.15);
+
+  --color-accent:     var(--color-gold);
+  --color-accent-hover: var(--color-gold-light);
+
+  --color-danger:     #e53e3e;
+  --color-danger-hover: #c53030;
+  --color-success:    #34d399;
 
   --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
 
-  --nav-height: 64px;
+  --nav-height: 68px;
   --section-padding: 120px 0;
   --container-width: 1200px;
   --radius-sm: 12px;
   --radius-md: 18px;
   --radius-lg: 24px;
 
-  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.10);
-  --shadow-nav: 0 1px 0 rgba(0, 0, 0, 0.08);
-  --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.18);
-  --color-success: #34d399;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-nav: 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 4px 30px rgba(201, 168, 76, 0.2);
 
   --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-smooth: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -96,13 +108,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 100%;
   height: var(--nav-height);
   z-index: 1000;
-  background: rgba(251, 251, 253, 0.82);
+  background: rgba(10, 10, 10, 0.75);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: var(--shadow-nav);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: background var(--transition-fast);
 }
-.navbar.scrolled { background: rgba(251, 251, 253, 0.95); }
+.navbar.scrolled { background: rgba(10, 10, 10, 0.92); }
 
 .navbar .container {
   display: flex;
@@ -113,13 +125,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .navbar__logo {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   transition: opacity var(--transition-fast);
 }
-.navbar__logo span { font-weight: 300; font-style: italic; opacity: 0.6; }
-.navbar__logo:hover { opacity: 0.7; }
+.navbar__logo .logo-luxury {
+  color: var(--color-gold);
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+}
+.navbar__logo .logo-flow {
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+  opacity: 0.9;
+}
+.navbar__logo:hover { opacity: 0.8; }
 
 .navbar__links {
   display: flex;
@@ -130,7 +151,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .navbar__link {
   font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--color-text-sec);
   position: relative;
   padding: 4px 0;
@@ -141,11 +163,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: absolute;
   bottom: -2px; left: 0;
   width: 0; height: 1.5px;
-  background: var(--color-text);
+  background: var(--color-gold);
   transition: width var(--transition-smooth);
 }
 .navbar__link:hover,
-.navbar__link.active { color: var(--color-text); }
+.navbar__link.active { color: var(--color-gold); }
 .navbar__link:hover::after,
 .navbar__link.active::after { width: 100%; }
 
@@ -170,7 +192,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed;
   top: var(--nav-height); left: 0;
   width: 100%; height: calc(100vh - var(--nav-height));
-  background: rgba(251, 251, 253, 0.98);
+  background: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(30px);
   flex-direction: column;
   align-items: center;
@@ -195,49 +217,75 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 160px 0 120px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  background: var(--color-bg);
 }
 
+/* Decorative gold gradient orb */
 .hero__bg-gradient {
   position: absolute;
-  top: -30%; left: 50%;
+  top: -20%; left: 50%;
   transform: translateX(-50%);
-  width: 900px; height: 900px;
+  width: 800px; height: 800px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(210, 210, 215, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, rgba(201, 168, 76, 0.02) 40%, transparent 70%);
   pointer-events: none;
   animation: pulse-glow 8s ease-in-out infinite;
 }
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-  50%      { opacity: 0.8; transform: translateX(-50%) scale(1.08); }
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;   transform: translateX(-50%) scale(1.1); }
+}
+
+/* Subtle grid pattern overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
 }
 
 .hero__content { position: relative; z-index: 1; }
 
 .hero__tagline {
   display: inline-block;
-  font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--color-text-ter);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--color-gold);
   margin-bottom: 24px;
+  padding: 8px 20px;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 980px;
+  background: rgba(201, 168, 76, 0.06);
   opacity: 0; animation: fade-up 0.8s 0.2s forwards;
 }
 .hero__title {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(3.5rem, 9vw, 7rem);
   font-weight: 400; line-height: 1.05;
   letter-spacing: -0.03em;
   margin-bottom: 28px;
   opacity: 0; animation: fade-up 0.9s 0.4s forwards;
 }
-.hero__title em { font-style: italic; font-weight: 300; opacity: 0.55; }
+.hero__title .title-luxury {
+  color: var(--color-gold);
+  text-shadow: 0 0 60px rgba(201, 168, 76, 0.25);
+}
+.hero__title .title-flow {
+  font-style: italic;
+  font-weight: 300;
+  color: #ffffff;
+  opacity: 0.85;
+}
 
 .hero__subtitle {
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
   font-weight: 300; color: var(--color-text-sec);
   max-width: 560px; margin: 0 auto 48px;
-  line-height: 1.7;
+  line-height: 1.8;
   opacity: 0; animation: fade-up 0.9s 0.6s forwards;
 }
 .hero__actions {
@@ -261,7 +309,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero__scroll-line {
   width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--color-text-ter), transparent);
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
   animation: scroll-pulse 2s ease-in-out infinite;
 }
 @keyframes scroll-pulse {
@@ -275,16 +323,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 0.9rem; font-weight: 500;
   padding: 14px 36px; border-radius: 980px;
   transition: all var(--transition-fast);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
 }
-.btn--primary { background: var(--color-accent); color: #fff; }
-.btn--primary:hover { background: var(--color-accent-hover); transform: scale(1.04); }
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold), var(--color-gold-light));
+  color: #0a0a0a;
+  box-shadow: var(--shadow-gold);
+}
+.btn--primary:hover {
+  transform: scale(1.04) translateY(-1px);
+  box-shadow: 0 8px 40px rgba(201, 168, 76, 0.35);
+}
 .btn--secondary {
   background: transparent; color: var(--color-text);
   border: 1.5px solid var(--color-border);
 }
 .btn--secondary:hover {
-  background: var(--color-text); color: #fff;
+  background: var(--color-text); color: var(--color-bg);
   border-color: var(--color-text); transform: scale(1.04);
 }
 .btn--danger { background: var(--color-danger); color: #fff; }
@@ -299,6 +356,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .products {
   padding: var(--section-padding);
   background: var(--color-surface);
+  position: relative;
 }
 
 .products__header {
@@ -311,12 +369,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .products__label {
   font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--color-text-ter); margin-bottom: 12px;
+  color: var(--color-gold); margin-bottom: 12px;
 }
 .products__title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 400; letter-spacing: -0.02em;
+  color: var(--color-text);
 }
 
 /* Filter Tabs */
@@ -326,15 +385,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 0.78rem; font-weight: 500;
   padding: 10px 22px; border-radius: 980px;
   color: var(--color-text-sec);
-  background: var(--color-bg-alt);
-  border: 1px solid transparent;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
   transition: all var(--transition-fast);
 }
 .products__filter-btn:hover {
-  color: var(--color-text); border-color: var(--color-border);
+  color: var(--color-text); border-color: var(--color-border-hover);
+  background: var(--color-bg-alt);
 }
 .products__filter-btn.active {
-  color: #fff; background: var(--color-accent);
+  color: #0a0a0a;
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
+  border-color: var(--color-gold);
 }
 
 /* Product Grid */
@@ -354,6 +416,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 3.5rem;
   margin-bottom: 20px;
   opacity: 0.3;
+  color: var(--color-gold);
 }
 .products__empty-title {
   font-family: var(--font-serif);
@@ -369,13 +432,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .product-card {
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-bg-alt);
-  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
   position: relative;
 }
 .product-card:hover {
   box-shadow: var(--shadow-card-hover);
   transform: translateY(-6px);
+  border-color: rgba(201, 168, 76, 0.2);
 }
 
 .product-card__image {
@@ -417,7 +482,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 0.65rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   padding: 5px 12px; border-radius: 980px;
-  background: var(--color-text); color: #fff;
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
+  color: #0a0a0a;
 }
 
 .product-card__info { padding: 20px; }
@@ -425,7 +491,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .product-card__category {
   font-size: 0.68rem; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--color-text-ter); margin-bottom: 6px;
+  color: var(--color-gold); margin-bottom: 6px;
+  opacity: 0.8;
 }
 .product-card__name {
   font-size: 0.95rem; font-weight: 500;
@@ -452,15 +519,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .product-card__admin-btn {
   width: 34px; height: 34px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.92);
+  background: rgba(20, 20, 20, 0.85);
   backdrop-filter: blur(10px);
   display: flex; align-items: center; justify-content: center;
   font-size: 0.85rem;
   color: var(--color-text);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   transition: all var(--transition-fast);
 }
-.product-card__admin-btn:hover { background: var(--color-text); color: #fff; }
+.product-card__admin-btn:hover { background: var(--color-gold); color: #0a0a0a; }
 .product-card__admin-btn--delete:hover { background: var(--color-danger); color: #fff; }
 
 /* ========================================
@@ -468,8 +535,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    ======================================== */
 .banner {
   padding: 100px 0;
-  background: var(--color-text);
-  color: #fff;
+  background: var(--color-bg);
+  color: var(--color-text);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -478,13 +545,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .banner__label {
   font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
-  opacity: 0.45; margin-bottom: 20px;
+  color: var(--color-gold); opacity: 0.7; margin-bottom: 20px;
 }
 .banner__title {
   font-family: var(--font-serif);
@@ -494,19 +561,114 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .banner__text {
   font-size: 1.05rem; font-weight: 300;
-  opacity: 0.65; max-width: 520px;
+  color: var(--color-text-sec);
+  max-width: 520px;
   margin: 0 auto 40px; line-height: 1.7;
 }
-.btn--white { background: #fff; color: var(--color-text); }
-.btn--white:hover { background: var(--color-bg-alt); transform: scale(1.04); }
+.btn--white {
+  background: #fff; color: #0a0a0a;
+}
+.btn--white:hover {
+  background: var(--color-gold); color: #0a0a0a;
+  transform: scale(1.04);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+.contact {
+  padding: var(--section-padding);
+  background: var(--color-surface);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact__label {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--color-gold); margin-bottom: 16px;
+  position: relative;
+}
+
+.contact__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400; letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.contact__text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text-sec);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  position: relative;
+}
+
+.contact__btn-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  border-radius: 980px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  box-shadow: 0 4px 30px rgba(131, 58, 180, 0.3);
+  transition: all var(--transition-fast);
+  position: relative;
+  text-decoration: none;
+}
+
+.contact__btn-ig:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 8px 40px rgba(131, 58, 180, 0.45);
+}
+
+.contact__btn-ig svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+}
+
+.contact__btn-ig:hover svg {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.contact__divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+  margin: 0 auto 40px;
+  border: none;
+}
 
 /* ========================================
    FOOTER
    ======================================== */
 .footer {
   padding: 72px 0 36px;
-  background: var(--color-surface);
-  border-top: 1px solid rgba(0,0,0,0.06);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
 }
 .footer__top {
   display: grid;
@@ -519,6 +681,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 1.3rem; font-weight: 600;
   margin-bottom: 16px;
 }
+.footer__brand-name .logo-luxury { color: var(--color-gold); }
+.footer__brand-name .logo-flow { font-weight: 300; font-style: italic; color: #ffffff; opacity: 0.9; }
 .footer__brand-text {
   font-size: 0.85rem; font-weight: 300;
   color: var(--color-text-sec); line-height: 1.7;
@@ -534,13 +698,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 0.85rem; font-weight: 400;
   color: var(--color-text-sec); transition: color var(--transition-fast);
 }
-.footer__col-links a:hover { color: var(--color-text); }
+.footer__col-links a:hover { color: var(--color-gold); }
 
 .footer__bottom {
   display: flex; align-items: center;
   justify-content: space-between;
   padding-top: 28px;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid var(--color-border);
 }
 .footer__copyright {
   font-size: 0.75rem; font-weight: 400; color: var(--color-text-ter);
@@ -548,14 +712,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .footer__socials { display: flex; gap: 16px; }
 .footer__social-link {
   width: 36px; height: 36px;
-  border-radius: 50%; background: var(--color-bg-alt);
+  border-radius: 50%; background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
   display: flex; align-items: center; justify-content: center;
   font-size: 0.85rem; color: var(--color-text-sec);
   transition: all var(--transition-fast);
 }
 .footer__social-link:hover {
-  background: var(--color-text); color: #fff;
+  background: var(--color-gold); color: #0a0a0a;
+  border-color: var(--color-gold);
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
 }
 
 /* ========================================
@@ -568,15 +735,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   bottom: 28px; right: 28px;
   width: 52px; height: 52px;
   border-radius: 50%;
-  background: var(--color-text);
-  color: #fff;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   z-index: 999;
   transition: all var(--transition-fast);
 }
-.admin-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(0,0,0,0.3); }
+.admin-fab:hover {
+  transform: scale(1.1);
+  border-color: var(--color-gold);
+  box-shadow: 0 6px 28px rgba(201, 168, 76, 0.2);
+  color: var(--color-gold);
+}
+.admin-fab.active {
+  background: var(--color-gold);
+  color: #0a0a0a;
+  border-color: var(--color-gold);
+}
 .admin-fab.hidden { display: none; }
 
 /* Admin bar */
@@ -584,8 +762,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed;
   top: var(--nav-height); left: 0;
   width: 100%;
-  background: var(--color-text);
-  color: #fff;
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
   padding: 12px 0;
   z-index: 998;
   transform: translateY(-100%);
@@ -603,7 +782,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .admin-bar__indicator {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: #34d399;
+  background: var(--color-success);
   animation: admin-pulse 2s infinite;
 }
 @keyframes admin-pulse {
@@ -620,21 +799,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 8px 20px;
   border-radius: 980px;
   font-size: 0.78rem; font-weight: 500;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
+  background: rgba(255,255,255,0.08);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
   transition: all var(--transition-fast);
 }
-.btn--admin:hover { background: rgba(255,255,255,0.25); }
+.btn--admin:hover { background: rgba(255,255,255,0.15); }
 .btn--admin-accent {
-  background: #fff;
-  color: var(--color-text);
+  background: var(--color-gold);
+  color: #0a0a0a;
+  border-color: var(--color-gold);
 }
-.btn--admin-accent:hover { background: var(--color-bg-alt); }
+.btn--admin-accent:hover { background: var(--color-gold-light); }
 .btn--admin-danger {
-  background: rgba(255,80,80,0.2);
+  background: rgba(229, 62, 62, 0.15);
   color: #fca5a5;
+  border-color: rgba(229, 62, 62, 0.3);
 }
-.btn--admin-danger:hover { background: rgba(255,80,80,0.35); }
+.btn--admin-danger:hover { background: rgba(229, 62, 62, 0.25); }
 
 /* ========================================
    LOGIN MODAL
@@ -654,9 +836,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: center;
   width: 64px; height: 64px;
   border-radius: 50%;
-  background: var(--color-bg-alt);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
   margin: 0 auto 24px;
-  color: var(--color-text-sec);
+  color: var(--color-gold);
 }
 
 .login__title {
@@ -729,8 +912,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -744,6 +927,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .modal {
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 560px;
@@ -771,12 +955,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .modal__close {
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: var(--color-bg-alt);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem; color: var(--color-text-sec);
   transition: all var(--transition-fast);
 }
-.modal__close:hover { background: var(--color-border); color: var(--color-text); }
+.modal__close:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
 
 .modal__body { padding: 28px 32px 32px; }
 
@@ -807,12 +995,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .form-input:focus,
 .form-select:focus,
-.form-textarea:focus { border-color: var(--color-text); }
+.form-textarea:focus { border-color: var(--color-gold); }
 .form-input::placeholder,
 .form-textarea::placeholder { color: var(--color-text-ter); }
 
 .form-textarea { resize: vertical; min-height: 80px; }
 .form-select { cursor: pointer; }
+.form-select option { background: var(--color-surface); color: var(--color-text); }
 
 .form-row {
   display: grid;
@@ -832,8 +1021,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--color-bg);
 }
 .form-image-upload:hover {
-  border-color: var(--color-text-sec);
-  background: var(--color-bg-alt);
+  border-color: var(--color-gold);
+  background: var(--color-surface-2);
 }
 .form-image-upload.has-image {
   padding: 12px;
@@ -855,7 +1044,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--color-text-sec);
 }
 .form-image-upload__text strong {
-  color: var(--color-text);
+  color: var(--color-gold);
 }
 .form-image-upload__preview {
   width: 100%;
@@ -883,7 +1072,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: flex-end;
   margin-top: 28px;
   padding-top: 22px;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid var(--color-border);
 }
 
 /* Confirm modal */
@@ -900,7 +1089,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .modal--confirm .confirm-name {
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-gold);
 }
 .modal--confirm .form-actions {
   justify-content: center;
@@ -910,12 +1099,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .toast {
   position: fixed;
   bottom: 96px; right: 28px;
-  background: var(--color-text);
-  color: #fff;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   padding: 14px 24px;
   border-radius: var(--radius-sm);
   font-size: 0.85rem; font-weight: 500;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
   z-index: 3000;
   transform: translateY(20px);
   opacity: 0;
@@ -947,6 +1137,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
   .products__header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .products__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .contact__btn-ig { padding: 14px 32px; font-size: 0.88rem; }
 
   .footer__top { grid-template-columns: 1fr; gap: 32px; }
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
