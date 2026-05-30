@@ -18,14 +18,21 @@
         <li><a href="#products" class="navbar__link" data-section="products">Productos</a></li>
         <li><a href="#contacto" class="navbar__link" data-section="contacto">Contacto</a></li>
       </ul>
-      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="navbar__right">
+        <button class="navbar__auth-btn" id="navAuthBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="navAuthText">Iniciar sesión</span>
+        </button>
+        <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
     <div class="navbar__mobile-menu" id="mobileMenu">
       <a href="#home" class="navbar__link" data-section="home">Home</a>
       <a href="#products" class="navbar__link" data-section="products">Productos</a>
       <a href="#contacto" class="navbar__link" data-section="contacto">Contacto</a>
+      <button class="btn btn--primary btn--small" id="mobileAuthBtn" style="margin-top:16px;">Iniciar sesión</button>
     </div>
   </nav>
 
@@ -108,12 +115,12 @@
         Seguinos en Instagram para ver las últimas novedades, lanzamientos exclusivos y contenido detrás de escena.
       </p>
       <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer" class="contact__btn-ig" id="igButton">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5"/>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
-        IG
+        Instagram
       </a>
     </div>
   </section>
@@ -163,12 +170,67 @@
   </footer>
 
   <!-- ========== ADMIN FAB ========== -->
-  <button class="admin-fab" id="adminFab" aria-label="Panel de administración" title="Panel Admin">
+  <button class="admin-fab hidden" id="adminFab" aria-label="Panel de administración" title="Panel Admin">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
   </button>
 
   <!-- ========== TOAST ========== -->
   <div class="toast" id="toast"></div>
+
+  <!-- ========== AUTH MODAL ========== -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal modal--auth">
+      <div class="modal__header">
+        <h3 class="modal__title" id="authModalTitle">Iniciar sesión</h3>
+        <button class="modal__close" id="authModalClose">✕</button>
+      </div>
+      <div class="modal__body">
+        <!-- LOGIN FORM -->
+        <form id="loginForm">
+          <div class="auth-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="loginUser">Usuario</label>
+            <input type="text" class="form-input" id="loginUser" placeholder="Tu nombre de usuario" required autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="loginPass">Contraseña</label>
+            <input type="password" class="form-input" id="loginPass" placeholder="Tu contraseña" required autocomplete="current-password" />
+          </div>
+          <p class="auth-error" id="loginError"></p>
+          <div class="form-actions" style="border:none;padding-top:8px;">
+            <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Ingresar</button>
+          </div>
+          <p class="auth-switch" id="showRegister">¿No tenés cuenta? <strong>Registrate</strong></p>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="registerForm" style="display:none;">
+          <div class="auth-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regUser">Usuario</label>
+            <input type="text" class="form-input" id="regUser" placeholder="Elegí un nombre de usuario" required autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regPass">Contraseña</label>
+            <input type="password" class="form-input" id="regPass" placeholder="Creá una contraseña" required autocomplete="new-password" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regPassConfirm">Confirmar contraseña</label>
+            <input type="password" class="form-input" id="regPassConfirm" placeholder="Repetí la contraseña" required autocomplete="new-password" />
+          </div>
+          <p class="auth-error" id="registerError"></p>
+          <div class="form-actions" style="border:none;padding-top:8px;">
+            <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Crear cuenta</button>
+          </div>
+          <p class="auth-switch" id="showLogin">¿Ya tenés cuenta? <strong>Iniciá sesión</strong></p>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- ========== PRODUCT MODAL ========== -->
   <div class="modal-overlay" id="productModal">
@@ -255,6 +317,63 @@
   <!-- ========== JAVASCRIPT ========== -->
   <script>
     /* ==============================================
+       AUTH SYSTEM — localStorage persistence
+       First user to register becomes admin.
+       After that, registration is disabled.
+       ============================================== */
+    const AUTH_KEY = 'luxuryflow_auth';
+    const SESSION_KEY = 'luxuryflow_session';
+
+    function loadAuth() {
+      try {
+        const data = localStorage.getItem(AUTH_KEY);
+        return data ? JSON.parse(data) : null;
+      } catch { return null; }
+    }
+
+    function saveAuth(authData) {
+      localStorage.setItem(AUTH_KEY, JSON.stringify(authData));
+    }
+
+    function getSession() {
+      try {
+        const data = sessionStorage.getItem(SESSION_KEY);
+        return data ? JSON.parse(data) : null;
+      } catch { return null; }
+    }
+
+    function setSession(user) {
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(user));
+    }
+
+    function clearSession() {
+      sessionStorage.removeItem(SESSION_KEY);
+    }
+
+    // Simple hash for password (NOT production secure — just for demo/local use)
+    function simpleHash(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash |= 0;
+      }
+      return hash.toString(36);
+    }
+
+    function isAdminRegistered() {
+      const auth = loadAuth();
+      return auth && auth.adminUser;
+    }
+
+    function isLoggedInAsAdmin() {
+      const session = getSession();
+      if (!session) return false;
+      const auth = loadAuth();
+      return auth && auth.adminUser === session.username;
+    }
+
+    /* ==============================================
        DATA LAYER — localStorage persistence
        ============================================== */
     const STORAGE_KEY = 'luxuryflow_products';
@@ -299,6 +418,20 @@
     const productsGrid = $('#productsGrid');
     const productFilters = $('#productFilters');
 
+    // Auth
+    const navAuthBtn = $('#navAuthBtn');
+    const navAuthText = $('#navAuthText');
+    const mobileAuthBtn = $('#mobileAuthBtn');
+    const authModal = $('#authModal');
+    const authModalTitle = $('#authModalTitle');
+    const authModalClose = $('#authModalClose');
+    const loginForm = $('#loginForm');
+    const registerForm = $('#registerForm');
+    const loginError = $('#loginError');
+    const registerError = $('#registerError');
+    const showRegisterBtn = $('#showRegister');
+    const showLoginBtn = $('#showLogin');
+
     // Product modal
     const productModal = $('#productModal');
     const modalTitle = $('#modalTitle');
@@ -323,6 +456,186 @@
 
     // Toast
     const toast = $('#toast');
+
+    /* ==============================================
+       AUTH UI
+       ============================================== */
+    function updateAuthUI() {
+      const session = getSession();
+      const isAdmin = isLoggedInAsAdmin();
+
+      if (session) {
+        navAuthText.textContent = session.username;
+        navAuthBtn.classList.add('logged-in');
+        mobileAuthBtn.textContent = 'Cerrar sesión';
+      } else {
+        navAuthText.textContent = 'Iniciar sesión';
+        navAuthBtn.classList.remove('logged-in');
+        mobileAuthBtn.textContent = 'Iniciar sesión';
+      }
+
+      // Show/hide admin FAB
+      if (isAdmin) {
+        adminFab.classList.remove('hidden');
+      } else {
+        adminFab.classList.add('hidden');
+        // If not admin, force disable admin mode
+        if (adminMode) {
+          adminMode = false;
+          document.body.classList.remove('admin-mode');
+          adminFab.classList.remove('active');
+          adminBar.classList.remove('visible');
+        }
+      }
+
+      // Update register availability
+      updateRegisterAvailability();
+    }
+
+    function updateRegisterAvailability() {
+      const registered = isAdminRegistered();
+      if (registered) {
+        showRegisterBtn.innerHTML = '<span style="opacity:0.5;">El registro está cerrado</span>';
+        showRegisterBtn.style.cursor = 'default';
+        showRegisterBtn.style.pointerEvents = 'none';
+      } else {
+        showRegisterBtn.innerHTML = '¿No tenés cuenta? <strong>Registrate</strong>';
+        showRegisterBtn.style.cursor = 'pointer';
+        showRegisterBtn.style.pointerEvents = 'auto';
+      }
+    }
+
+    function openAuthModal(showLogin = true) {
+      loginForm.style.display = showLogin ? 'block' : 'none';
+      registerForm.style.display = showLogin ? 'none' : 'block';
+      authModalTitle.textContent = showLogin ? 'Iniciar sesión' : 'Crear cuenta';
+      loginError.textContent = '';
+      registerError.textContent = '';
+      loginForm.reset();
+      registerForm.reset();
+      updateRegisterAvailability();
+      authModal.classList.add('visible');
+    }
+
+    function closeAuthModal() {
+      authModal.classList.remove('visible');
+    }
+
+    // Nav auth button
+    navAuthBtn.addEventListener('click', () => {
+      const session = getSession();
+      if (session) {
+        // Logout
+        clearSession();
+        updateAuthUI();
+        showToast('👋 Sesión cerrada');
+      } else {
+        openAuthModal(true);
+      }
+    });
+
+    mobileAuthBtn.addEventListener('click', () => {
+      const session = getSession();
+      if (session) {
+        clearSession();
+        updateAuthUI();
+        showToast('👋 Sesión cerrada');
+        navToggle.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      } else {
+        navToggle.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        openAuthModal(true);
+      }
+    });
+
+    authModalClose.addEventListener('click', closeAuthModal);
+    authModal.addEventListener('click', (e) => {
+      if (e.target === authModal) closeAuthModal();
+    });
+
+    // Switch between login/register
+    showRegisterBtn.addEventListener('click', () => {
+      if (isAdminRegistered()) return;
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+      authModalTitle.textContent = 'Crear cuenta';
+      loginError.textContent = '';
+    });
+
+    showLoginBtn.addEventListener('click', () => {
+      registerForm.style.display = 'none';
+      loginForm.style.display = 'block';
+      authModalTitle.textContent = 'Iniciar sesión';
+      registerError.textContent = '';
+    });
+
+    // Register
+    registerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = $('#regUser').value.trim();
+      const pass = $('#regPass').value;
+      const passConfirm = $('#regPassConfirm').value;
+
+      if (username.length < 3) {
+        registerError.textContent = 'El usuario debe tener al menos 3 caracteres.';
+        return;
+      }
+      if (pass.length < 4) {
+        registerError.textContent = 'La contraseña debe tener al menos 4 caracteres.';
+        return;
+      }
+      if (pass !== passConfirm) {
+        registerError.textContent = 'Las contraseñas no coinciden.';
+        return;
+      }
+
+      if (isAdminRegistered()) {
+        registerError.textContent = 'El registro está cerrado. Solo el admin puede acceder.';
+        return;
+      }
+
+      // First user = admin
+      const authData = {
+        adminUser: username,
+        passwordHash: simpleHash(pass)
+      };
+      saveAuth(authData);
+      setSession({ username, isAdmin: true });
+      closeAuthModal();
+      updateAuthUI();
+      showToast('🎉 ¡Cuenta admin creada! Sos el administrador.');
+    });
+
+    // Login
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = $('#loginUser').value.trim();
+      const pass = $('#loginPass').value;
+      const auth = loadAuth();
+
+      if (!auth || !auth.adminUser) {
+        loginError.textContent = 'No hay cuentas registradas aún.';
+        return;
+      }
+
+      if (username !== auth.adminUser) {
+        loginError.textContent = 'Usuario incorrecto.';
+        return;
+      }
+
+      if (simpleHash(pass) !== auth.passwordHash) {
+        loginError.textContent = 'Contraseña incorrecta.';
+        return;
+      }
+
+      setSession({ username, isAdmin: true });
+      closeAuthModal();
+      updateAuthUI();
+      showToast('✅ ¡Bienvenido, ' + username + '!');
+    });
 
     /* ==============================================
        NAVBAR
@@ -371,6 +684,10 @@
        ADMIN MODE
        ============================================== */
     adminFab.addEventListener('click', () => {
+      if (!isLoggedInAsAdmin()) {
+        showToast('🔒 Solo el admin puede usar esto');
+        return;
+      }
       adminMode = !adminMode;
       document.body.classList.toggle('admin-mode', adminMode);
       adminFab.classList.toggle('active', adminMode);
@@ -570,14 +887,12 @@
             <h3 class="products__empty-title">${products.length === 0 ? 'Sin productos aún' : 'Sin resultados'}</h3>
             <p class="products__empty-text">
               ${products.length === 0
-                ? 'Activá el modo admin con el botón ⚙️ y agregá tu primer producto.'
+                ? (isLoggedInAsAdmin()
+                  ? 'Activá el modo admin con el botón ⚙️ y agregá tu primer producto.'
+                  : 'Próximamente nuevos productos.')
                 : 'No hay productos en esta categoría.'
               }
             </p>
-            ${products.length === 0 && !adminMode
-              ? '<button class="btn btn--primary btn--small" onclick="document.getElementById(\'adminFab\').click()">Activar Admin</button>'
-              : ''
-            }
           </div>
         `;
         return;
@@ -656,7 +971,8 @@
        ============================================== */
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (confirmModal.classList.contains('visible')) closeConfirmModal();
+        if (authModal.classList.contains('visible')) closeAuthModal();
+        else if (confirmModal.classList.contains('visible')) closeConfirmModal();
         else if (productModal.classList.contains('visible')) closeProductModal();
       }
     });
@@ -664,9 +980,11 @@
     /* ==============================================
        INIT
        ============================================== */
+    updateAuthUI();
     renderFilters();
     renderProducts();
   </script>
 
 </body>
 </html>
+
