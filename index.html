@@ -12,10 +12,11 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#home" class="navbar__logo">Luxury<span>Flow</span></a>
+      <a href="#home" class="navbar__logo"><span class="logo-luxury">Luxury</span><span class="logo-flow">Flow</span></a>
       <ul class="navbar__links">
         <li><a href="#home" class="navbar__link active" data-section="home">Home</a></li>
         <li><a href="#products" class="navbar__link" data-section="products">Productos</a></li>
+        <li><a href="#contacto" class="navbar__link" data-section="contacto">Contacto</a></li>
       </ul>
       <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -24,6 +25,7 @@
     <div class="navbar__mobile-menu" id="mobileMenu">
       <a href="#home" class="navbar__link" data-section="home">Home</a>
       <a href="#products" class="navbar__link" data-section="products">Productos</a>
+      <a href="#contacto" class="navbar__link" data-section="contacto">Contacto</a>
     </div>
   </nav>
 
@@ -47,7 +49,7 @@
     <div class="hero__bg-gradient"></div>
     <div class="hero__content container">
       <p class="hero__tagline">Nueva Colección</p>
-      <h1 class="hero__title">Luxury<br /><em>Flow/h1>
+      <h1 class="hero__title"><span class="title-luxury">Luxury</span><br /><span class="title-flow">Flow</span></h1>
       <p class="hero__subtitle">
         Prendas diseñadas para quienes entienden que la elegancia está en los detalles.
       </p>
@@ -96,12 +98,32 @@
     </div>
   </section>
 
+  <!-- ========== CONTACTO ========== -->
+  <section class="contact reveal" id="contacto">
+    <div class="container">
+      <p class="contact__label">Redes Sociales</p>
+      <h2 class="contact__title">Contactanos</h2>
+      <hr class="contact__divider" />
+      <p class="contact__text">
+        Seguinos en Instagram para ver las últimas novedades, lanzamientos exclusivos y contenido detrás de escena.
+      </p>
+      <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer" class="contact__btn-ig" id="igButton">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        IG
+      </a>
+    </div>
+  </section>
+
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
-          <div class="footer__brand-name">LuxuryFlow</div>
+          <div class="footer__brand-name"><span class="logo-luxury">Luxury</span><span class="logo-flow">Flow</span></div>
           <p class="footer__brand-text">
             Indumentaria premium con diseño minimalista.
           </p>
@@ -121,7 +143,7 @@
         <div>
           <h4 class="footer__col-title">Redes</h4>
           <div class="footer__col-links">
-            <a href="#">Instagram</a>
+            <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="#">TikTok</a>
           </div>
         </div>
@@ -129,7 +151,7 @@
       <div class="footer__bottom">
         <p class="footer__copyright">© 2026 LuxuryFlow. Todos los derechos reservados.</p>
         <div class="footer__socials">
-          <a href="#" class="footer__social-link" aria-label="Instagram">
+          <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
           <a href="#" class="footer__social-link" aria-label="TikTok">
