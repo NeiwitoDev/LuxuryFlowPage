@@ -6,6 +6,7 @@
   <meta name="description" content="LuxuryFlow — Indumentaria premium con estilo minimalista y materiales de alta calidad." />
   <title>LuxuryFlow — Premium Clothing</title>
   <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -33,6 +34,20 @@
       <a href="#products" class="navbar__link" data-section="products">Productos</a>
       <a href="#contacto" class="navbar__link" data-section="contacto">Contacto</a>
       <button class="btn btn--primary btn--small" id="mobileAuthBtn" style="margin-top:16px;">Iniciar sesión</button>
+      
+      <div class="mobile-menu-footer">
+        <p class="mobile-menu-brand">LuxuryFlow</p>
+        <div class="mobile-menu-socials">
+          <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="#">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            TikTok
+          </a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -44,6 +59,9 @@
         <span class="admin-bar__text">Panel Admin <span>— Modo edición activo</span></span>
       </div>
       <div class="admin-bar__actions">
+        <button class="btn--admin btn--admin-secondary" id="btnConfigSecurity">
+          ⚙️ Configurar Correo
+        </button>
         <button class="btn--admin btn--admin-accent" id="btnAddProduct">
           + Agregar producto
         </button>
@@ -215,6 +233,10 @@
             <input type="text" class="form-input" id="regUser" placeholder="Elegí un nombre de usuario" required autocomplete="username" />
           </div>
           <div class="form-group">
+            <label class="form-label" for="regEmail">Email (Gmail para recibir el código)</label>
+            <input type="email" class="form-input" id="regEmail" placeholder="ejemplo@gmail.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
             <label class="form-label" for="regPass">Contraseña</label>
             <input type="password" class="form-input" id="regPass" placeholder="Creá una contraseña" required autocomplete="new-password" />
           </div>
@@ -227,6 +249,47 @@
             <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Crear cuenta</button>
           </div>
           <p class="auth-switch" id="showLogin">¿Ya tenés cuenta? <strong>Iniciá sesión</strong></p>
+        </form>
+
+        <!-- OTP FORM -->
+        <form id="otpForm" style="display:none;" onsubmit="return false;">
+          <div class="auth-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
+          </div>
+          
+          <!-- Simulation Mode Badge -->
+          <div class="otp-sim-badge" id="otpSimBadge" style="display:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div>
+              <strong>Modo Simulación:</strong> El código generado es <span class="otp-sim-code" id="otpSimCode">000000</span> (también copiado en consola y toast). Configura EmailJS en el panel admin para envío real.
+            </div>
+          </div>
+
+          <p class="form-help-text" style="text-align: center; margin-bottom: 8px;">
+            Ingresá el código de verificación enviado a tu correo registrado:
+          </p>
+          <p id="otpTargetEmail" style="text-align: center; font-weight: 600; font-size: 0.9rem; color: var(--color-gold); margin-bottom: 20px;"></p>
+
+          <div class="otp-inputs" id="otpInputsContainer">
+            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+          </div>
+
+          <p class="auth-error" id="otpError" style="text-align: center; margin-bottom: 16px;"></p>
+
+          <div class="otp-timer">
+            ¿No recibiste el código? <br />
+            <span id="otpCountdownText">Reenviar en <strong id="otpTimerSeconds">120</strong>s</span>
+            <button type="button" class="otp-resend" id="btnOtpResend" style="display:none;">Reenviar código</button>
+          </div>
+
+          <div class="form-actions" style="border:none;padding-top:16px;">
+            <button type="button" class="btn btn--secondary btn--small" id="btnOtpBack" style="width:100%;justify-content:center;">Regresar</button>
+          </div>
         </form>
       </div>
     </div>
@@ -310,6 +373,39 @@
           <button class="btn btn--secondary btn--small" id="confirmCancel">Cancelar</button>
           <button class="btn btn--danger btn--small" id="confirmDelete">Eliminar</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECURITY CONFIG MODAL ========== -->
+  <div class="modal-overlay" id="securityModal">
+    <div class="modal modal--security">
+      <div class="modal__header">
+        <h3 class="modal__title">Seguridad — Envíos Gmail</h3>
+        <button class="modal__close" id="securityModalClose">✕</button>
+      </div>
+      <div class="modal__body">
+        <form id="securityForm">
+          <p class="form-help-text">
+            Configurá tus credenciales de <strong>EmailJS</strong> para enviar de forma real el código de inicio de sesión a Gmail.
+          </p>
+          <div class="form-group">
+            <label class="form-label" for="secServiceId">Service ID</label>
+            <input type="text" class="form-input" id="secServiceId" placeholder="Ej: service_default" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="secTemplateId">Template ID</label>
+            <input type="text" class="form-input" id="secTemplateId" placeholder="Ej: template_xxxxxx" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="secPublicKey">Public Key</label>
+            <input type="text" class="form-input" id="secPublicKey" placeholder="Ej: user_xxxxxx o key_xxxxxx" required />
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn--secondary btn--small" id="secCancel">Cancelar</button>
+            <button type="submit" class="btn btn--primary btn--small" id="secSave">Guardar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -432,6 +528,18 @@
     const showRegisterBtn = $('#showRegister');
     const showLoginBtn = $('#showLogin');
 
+    // OTP
+    const otpForm = $('#otpForm');
+    const btnOtpBack = $('#btnOtpBack');
+    const btnOtpResend = $('#btnOtpResend');
+
+    // Security Settings
+    const securityModal = $('#securityModal');
+    const securityModalClose = $('#securityModalClose');
+    const secCancel = $('#secCancel');
+    const securityForm = $('#securityForm');
+    const btnConfigSecurity = $('#btnConfigSecurity');
+
     // Product modal
     const productModal = $('#productModal');
     const modalTitle = $('#modalTitle');
@@ -508,17 +616,20 @@
     function openAuthModal(showLogin = true) {
       loginForm.style.display = showLogin ? 'block' : 'none';
       registerForm.style.display = showLogin ? 'none' : 'block';
+      otpForm.style.display = 'none';
       authModalTitle.textContent = showLogin ? 'Iniciar sesión' : 'Crear cuenta';
       loginError.textContent = '';
       registerError.textContent = '';
       loginForm.reset();
       registerForm.reset();
+      resetOtpState();
       updateRegisterAvailability();
       authModal.classList.add('visible');
     }
 
     function closeAuthModal() {
       authModal.classList.remove('visible');
+      resetOtpState();
     }
 
     // Nav auth button
@@ -560,6 +671,7 @@
     showRegisterBtn.addEventListener('click', () => {
       if (isAdminRegistered()) return;
       loginForm.style.display = 'none';
+      otpForm.style.display = 'none';
       registerForm.style.display = 'block';
       authModalTitle.textContent = 'Crear cuenta';
       loginError.textContent = '';
@@ -567,6 +679,7 @@
 
     showLoginBtn.addEventListener('click', () => {
       registerForm.style.display = 'none';
+      otpForm.style.display = 'none';
       loginForm.style.display = 'block';
       authModalTitle.textContent = 'Iniciar sesión';
       registerError.textContent = '';
@@ -576,11 +689,17 @@
     registerForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const username = $('#regUser').value.trim();
+      const email = $('#regEmail').value.trim();
       const pass = $('#regPass').value;
       const passConfirm = $('#regPassConfirm').value;
 
       if (username.length < 3) {
         registerError.textContent = 'El usuario debe tener al menos 3 caracteres.';
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        registerError.textContent = 'Por favor, ingresá un correo electrónico válido.';
         return;
       }
       if (pass.length < 4) {
@@ -600,6 +719,7 @@
       // First user = admin
       const authData = {
         adminUser: username,
+        adminEmail: email,
         passwordHash: simpleHash(pass)
       };
       saveAuth(authData);
@@ -631,10 +751,264 @@
         return;
       }
 
-      setSession({ username, isAdmin: true });
-      closeAuthModal();
-      updateAuthUI();
-      showToast('✅ ¡Bienvenido, ' + username + '!');
+      // Credentials match. Now trigger OTP flow.
+      startOtpFlow(auth);
+    });
+
+    /* ==============================================
+       OTP & SECURITY LOGIC
+       ============================================== */
+    const SECURITY_KEY = 'luxuryflow_security_config';
+    let generatedOtp = '';
+    let otpExpiryTime = 0;
+    let otpTargetEmailAddress = '';
+    let otpUserSessionTemp = null;
+    let otpCountdownInterval = null;
+
+    function loadSecurityConfig() {
+      try {
+        const data = localStorage.getItem(SECURITY_KEY);
+        return data ? JSON.parse(data) : null;
+      } catch { return null; }
+    }
+
+    function saveSecurityConfig(config) {
+      localStorage.setItem(SECURITY_KEY, JSON.stringify(config));
+    }
+
+    function initEmailJS() {
+      const config = loadSecurityConfig();
+      if (config && config.publicKey) {
+        emailjs.init({
+          publicKey: config.publicKey,
+        });
+        console.log("EmailJS initialized successfully.");
+      }
+    }
+
+    // Run EmailJS initialization
+    initEmailJS();
+
+    function obfuscateEmail(email) {
+      const parts = email.split('@');
+      if (parts.length !== 2) return email;
+      const name = parts[0];
+      const domain = parts[1];
+      if (name.length <= 2) {
+        return name[0] + '***@' + domain;
+      }
+      return name.slice(0, 2) + '***' + name.slice(-1) + '@' + domain;
+    }
+
+    function startOtpFlow(auth) {
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'none';
+      otpForm.style.display = 'block';
+      authModalTitle.textContent = 'Verificación de seguridad';
+
+      const email = auth.adminEmail || 'admin@luxuryflow.com';
+      otpTargetEmailAddress = email;
+      otpUserSessionTemp = { username: auth.adminUser, isAdmin: true };
+      $('#otpTargetEmail').textContent = obfuscateEmail(email);
+      $('#otpError').textContent = '';
+
+      // Clear inputs
+      const otpInputs = $$('#otpInputsContainer .otp-input');
+      otpInputs.forEach(inp => inp.value = '');
+
+      generateAndSendOTP();
+
+      // Focus first input
+      setTimeout(() => otpInputs[0].focus(), 100);
+    }
+
+    function generateAndSendOTP() {
+      const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+      generatedOtp = otpCode;
+      otpExpiryTime = Date.now() + 5 * 60 * 1000; // 5 minutes
+
+      const config = loadSecurityConfig();
+      const hasRealConfig = config && config.serviceId && config.templateId && config.publicKey;
+
+      if (hasRealConfig) {
+        $('#otpSimBadge').style.display = 'none';
+        sendRealEmail(otpTargetEmailAddress, otpCode);
+      } else {
+        // Simulation mode
+        $('#otpSimBadge').style.display = 'flex';
+        $('#otpSimCode').textContent = otpCode;
+        showToast('🔑 Código OTP (Simulado): ' + otpCode);
+        console.log('--- MOCK EMAIL SENDER ---');
+        console.log(`Para: ${otpTargetEmailAddress}`);
+        console.log(`Mensaje: Tu código de verificación para LuxuryFlow es: ${otpCode}`);
+        console.log('-------------------------');
+      }
+
+      startOtpTimer();
+    }
+
+    function sendRealEmail(email, code) {
+      const config = loadSecurityConfig();
+      if (!config) return;
+
+      const templateParams = {
+        to_email: email,
+        to_name: 'Administrador LuxuryFlow',
+        code: code,
+        message: `Tu código de verificación de inicio de sesión de LuxuryFlow es: ${code}. El código expira en 5 minutos.`,
+      };
+
+      showToast('📨 Enviando código a tu Gmail...');
+
+      emailjs.send(config.serviceId, config.templateId, templateParams)
+        .then(() => {
+          showToast('📩 Código enviado a tu Gmail');
+        })
+        .catch((err) => {
+          console.error('EmailJS Error:', err);
+          showToast('❌ Error de envío. Iniciado en simulación.');
+          // Fallback simulation so user doesn't get locked out
+          $('#otpSimBadge').style.display = 'flex';
+          $('#otpSimCode').textContent = code;
+        });
+    }
+
+    function startOtpTimer() {
+      clearInterval(otpCountdownInterval);
+      const btnResend = $('#btnOtpResend');
+      const timerText = $('#otpCountdownText');
+      const timerSecs = $('#otpTimerSeconds');
+
+      btnResend.style.display = 'none';
+      timerText.style.display = 'inline';
+
+      let timeLeft = 120; // 2 minutes
+      timerSecs.textContent = timeLeft;
+
+      otpCountdownInterval = setInterval(() => {
+        timeLeft--;
+        timerSecs.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(otpCountdownInterval);
+          timerText.style.display = 'none';
+          btnResend.style.display = 'inline-block';
+        }
+      }, 1000);
+    }
+
+    function checkAndVerifyOTP() {
+      const otpInputs = $$('#otpInputsContainer .otp-input');
+      const code = Array.from(otpInputs).map(inp => inp.value).join('');
+
+      if (code.length === 6) {
+        if (Date.now() > otpExpiryTime) {
+          $('#otpError').textContent = 'El código ha expirado. Solicitá uno nuevo.';
+          return;
+        }
+
+        if (code === generatedOtp) {
+          // Complete authentication
+          setSession(otpUserSessionTemp);
+          closeAuthModal();
+          updateAuthUI();
+          showToast('✅ ¡Bienvenido, ' + otpUserSessionTemp.username + '!');
+          resetOtpState();
+        } else {
+          // Invalid code
+          $('#otpError').textContent = 'Código incorrecto. Intentá de nuevo.';
+          $('#otpInputsContainer').classList.add('shake');
+          setTimeout(() => $('#otpInputsContainer').classList.remove('shake'), 400);
+
+          // Reset inputs and refocus first
+          otpInputs.forEach(inp => inp.value = '');
+          otpInputs[0].focus();
+        }
+      }
+    }
+
+    function resetOtpState() {
+      generatedOtp = '';
+      otpExpiryTime = 0;
+      otpTargetEmailAddress = '';
+      otpUserSessionTemp = null;
+      if (otpCountdownInterval) clearInterval(otpCountdownInterval);
+    }
+
+    // OTP Inputs Auto-focus and paste behavior
+    const otpInputs = $$('#otpInputsContainer .otp-input');
+    otpInputs.forEach((input, idx) => {
+      input.addEventListener('input', (e) => {
+        input.value = input.value.replace(/[^0-9]/g, '');
+        if (input.value && idx < otpInputs.length - 1) {
+          otpInputs[idx + 1].focus();
+        }
+        checkAndVerifyOTP();
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && idx > 0) {
+          otpInputs[idx - 1].focus();
+        }
+      });
+
+      input.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const text = (e.clipboardData || window.clipboardData).getData('text');
+        const digits = text.replace(/[^0-9]/g, '').slice(0, 6);
+        if (digits.length === 6) {
+          otpInputs.forEach((inp, i) => {
+            inp.value = digits[i] || '';
+          });
+          otpInputs[5].focus();
+          checkAndVerifyOTP();
+        }
+      });
+    });
+
+    btnOtpBack.addEventListener('click', () => {
+      resetOtpState();
+      otpForm.style.display = 'none';
+      loginForm.style.display = 'block';
+      authModalTitle.textContent = 'Iniciar sesión';
+    });
+
+    btnOtpResend.addEventListener('click', () => {
+      $('#otpError').textContent = '';
+      generateAndSendOTP();
+    });
+
+    /* ==============================================
+       SECURITY SETTINGS MODAL
+       ============================================== */
+    function openSecurityModal() {
+      const config = loadSecurityConfig();
+      $('#secServiceId').value = config ? (config.serviceId || '') : '';
+      $('#secTemplateId').value = config ? (config.templateId || '') : '';
+      $('#secPublicKey').value = config ? (config.publicKey || '') : '';
+      securityModal.classList.add('visible');
+    }
+
+    function closeSecurityModal() {
+      securityModal.classList.remove('visible');
+    }
+
+    btnConfigSecurity.addEventListener('click', openSecurityModal);
+    securityModalClose.addEventListener('click', closeSecurityModal);
+    secCancel.addEventListener('click', closeSecurityModal);
+    securityModal.addEventListener('click', (e) => {
+      if (e.target === securityModal) closeSecurityModal();
+    });
+
+    securityForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const serviceId = $('#secServiceId').value.trim();
+      const templateId = $('#secTemplateId').value.trim();
+      const publicKey = $('#secPublicKey').value.trim();
+
+      saveSecurityConfig({ serviceId, templateId, publicKey });
+      initEmailJS();
+      closeSecurityModal();
+      showToast('⚙️ Configuración de correo guardada');
     });
 
     /* ==============================================
@@ -974,6 +1348,7 @@
         if (authModal.classList.contains('visible')) closeAuthModal();
         else if (confirmModal.classList.contains('visible')) closeConfirmModal();
         else if (productModal.classList.contains('visible')) closeProductModal();
+        else if (securityModal.classList.contains('visible')) closeSecurityModal();
       }
     });
 
@@ -987,4 +1362,3 @@
 
 </body>
 </html>
-
