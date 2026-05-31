@@ -3,7 +3,7 @@
    Dark Luxury Theme with Gold Accents
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Italiana&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 /* ---------- CSS Variables ---------- */
 :root {
@@ -31,8 +31,8 @@
   --color-danger-hover: #c53030;
   --color-success:    #34d399;
 
-  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Italiana', Georgia, serif;
 
   --nav-height: 68px;
   --section-padding: 120px 0;
@@ -946,6 +946,115 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ========================================
+   OTP VERIFICATION & SECURITY SETTINGS
+   ======================================== */
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px 0;
+}
+.otp-input {
+  width: 44px;
+  height: 52px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.otp-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.2);
+}
+/* Hide arrows on numeric input */
+.otp-input::-webkit-outer-spin-button,
+.otp-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.otp-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.otp-timer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-sec);
+  margin-bottom: 24px;
+}
+.otp-timer span {
+  color: var(--color-gold);
+  font-weight: 500;
+}
+.otp-resend {
+  background: none;
+  border: none;
+  color: var(--color-gold);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+  padding: 0;
+  font-size: 0.85rem;
+}
+.otp-resend:disabled {
+  color: var(--color-text-ter);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.otp-sim-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--color-gold-light);
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+.otp-sim-badge svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.otp-sim-code {
+  font-family: monospace;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.form-help-text {
+  font-size: 0.85rem;
+  color: var(--color-text-sec);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.btn--admin-secondary {
+  background: rgba(201, 168, 76, 0.08);
+  border-color: rgba(201, 168, 76, 0.25);
+  color: var(--color-gold-light);
+}
+.btn--admin-secondary:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+/* ========================================
    MODAL SYSTEM
    ======================================== */
 .modal-overlay {
@@ -1168,7 +1277,76 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .navbar__links { display: none; }
   .navbar__toggle { display: flex; }
-  .navbar__mobile-menu { display: flex; }
+
+  .navbar__mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height); left: 0;
+    width: 100%; height: calc(100vh - var(--nav-height));
+    background: rgba(10, 10, 10, 0.88);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-smooth);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+  }
+  .navbar__mobile-menu.open { display: flex; opacity: 1; pointer-events: all; }
+
+  /* Staggered mobile menu links */
+  .navbar__mobile-menu .navbar__link {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.25s ease;
+  }
+  .navbar__mobile-menu.open .navbar__link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .navbar__mobile-menu.open .navbar__link:nth-child(1) { transition-delay: 0.1s; }
+  .navbar__mobile-menu.open .navbar__link:nth-child(2) { transition-delay: 0.18s; }
+  .navbar__mobile-menu.open .navbar__link:nth-child(3) { transition-delay: 0.26s; }
+  .navbar__mobile-menu.open .btn { transition-delay: 0.34s; }
+  .navbar__mobile-menu.open .mobile-menu-footer { transition-delay: 0.42s; }
+
+  .mobile-menu-footer {
+    margin-top: 40px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .navbar__mobile-menu.open .mobile-menu-footer {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  .mobile-menu-brand {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--color-gold);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .mobile-menu-socials {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+  .mobile-menu-socials a {
+    font-size: 0.8rem;
+    color: var(--color-text-sec);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition-fast);
+  }
+  .mobile-menu-socials a:hover {
+    color: var(--color-gold);
+  }
 
   .hero { padding: 140px 0 100px; }
   .hero__actions { flex-direction: column; gap: 14px; }
@@ -1176,6 +1354,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
   .products__header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .products__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .product-card__info { padding: 14px; }
+  .product-card__name { font-size: 0.88rem; margin-bottom: 6px; }
+  .product-card__price { font-size: 0.88rem; }
+  .product-card__category { font-size: 0.62rem; margin-bottom: 4px; }
+  .product-card__badge { font-size: 0.58rem; padding: 4px 10px; top: 10px; left: 10px; }
+  .product-card__admin-actions { top: 8px; right: 8px; }
+  .product-card__admin-btn { width: 30px; height: 30px; font-size: 0.75rem; }
 
   .contact__btn-ig { padding: 14px 32px; font-size: 0.88rem; }
 
@@ -1192,5 +1378,5 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @media (max-width: 480px) {
   .products__grid { grid-template-columns: 1fr; }
-  .product-card__admin-actions { display: flex; }
+  .admin-mode .product-card__admin-actions { display: flex; }
 }
