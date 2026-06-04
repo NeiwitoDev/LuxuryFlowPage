@@ -226,45 +226,6 @@
           <div class="form-actions" style="border:none;padding-top:8px;">
             <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Ingresar</button>
           </div>
-          <p class="auth-switch" id="showRegister">¿No tenés cuenta? <strong>Registrate</strong></p>
-        </form>
-
-        <!-- REGISTER FORM -->
-        <form id="registerForm" style="display:none;">
-          <div class="auth-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="regUser">Usuario</label>
-            <input type="text" class="form-input" id="regUser" placeholder="Elegí un nombre de usuario" required autocomplete="username" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="regEmail">Email (Gmail para recibir el código)</label>
-            <input type="email" class="form-input" id="regEmail" placeholder="ejemplo@gmail.com" required autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="regPass">Contraseña</label>
-            <div class="password-wrapper">
-              <input type="password" class="form-input" id="regPass" placeholder="Creá una contraseña" required autocomplete="new-password" />
-              <button type="button" class="password-toggle-btn" aria-label="Mostrar contraseña">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="regPassConfirm">Confirmar contraseña</label>
-            <div class="password-wrapper">
-              <input type="password" class="form-input" id="regPassConfirm" placeholder="Repetí la contraseña" required autocomplete="new-password" />
-              <button type="button" class="password-toggle-btn" aria-label="Mostrar contraseña">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="auth-error" id="registerError"></p>
-          <div class="form-actions" style="border:none;padding-top:8px;">
-            <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Crear cuenta</button>
-          </div>
-          <p class="auth-switch" id="showLogin">¿Ya tenés cuenta? <strong>Iniciá sesión</strong></p>
         </form>
 
         <!-- FORGOT PASSWORD FORM -->
@@ -322,14 +283,6 @@
         <form id="otpForm" style="display:none;" onsubmit="return false;">
           <div class="auth-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
-          </div>
-          
-          <!-- Simulation Mode Badge -->
-          <div class="otp-sim-badge" id="otpSimBadge" style="display:none;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <div>
-              <strong>Modo Simulación:</strong> El código generado es <span class="otp-sim-code" id="otpSimCode">000000</span> (también copiado en consola y toast). Configura EmailJS en el panel admin para envío real.
-            </div>
           </div>
 
           <p class="form-help-text" style="text-align: center; margin-bottom: 8px;">
@@ -489,8 +442,17 @@
 
     function loadAuth() {
       try {
-        const data = localStorage.getItem(AUTH_KEY);
-        return data ? JSON.parse(data) : null;
+        let data = localStorage.getItem(AUTH_KEY);
+        if (!data) {
+          const defaultAdmin = {
+            adminUser: 'admin',
+            adminEmail: 'tucorreo@gmail.com',
+            passwordHash: simpleHash('admin123')
+          };
+          localStorage.setItem(AUTH_KEY, JSON.stringify(defaultAdmin));
+          return defaultAdmin;
+        }
+        return JSON.parse(data);
       } catch { return null; }
     }
 
@@ -524,10 +486,7 @@
       return hash.toString(36);
     }
 
-    function isAdminRegistered() {
-      const auth = loadAuth();
-      return auth && auth.adminUser;
-    }
+
 
     function isLoggedInAsAdmin() {
       const session = getSession();
@@ -673,41 +632,23 @@
           adminBar.classList.remove('visible');
         }
       }
-
-      // Update register availability
-      updateRegisterAvailability();
     }
 
-    function updateRegisterAvailability() {
-      const registered = isAdminRegistered();
-      if (registered) {
-        showRegisterBtn.innerHTML = '<span style="opacity:0.5;">El registro está cerrado</span>';
-        showRegisterBtn.style.cursor = 'default';
-        showRegisterBtn.style.pointerEvents = 'none';
-      } else {
-        showRegisterBtn.innerHTML = '¿No tenés cuenta? <strong>Registrate</strong>';
-        showRegisterBtn.style.cursor = 'pointer';
-        showRegisterBtn.style.pointerEvents = 'auto';
-      }
-    }
 
-    function openAuthModal(showLogin = true) {
-      loginForm.style.display = showLogin ? 'block' : 'none';
-      registerForm.style.display = showLogin ? 'none' : 'block';
+
+    function openAuthModal() {
+      loginForm.style.display = 'block';
       otpForm.style.display = 'none';
       forgotForm.style.display = 'none';
       resetPassForm.style.display = 'none';
-      authModalTitle.textContent = showLogin ? 'Iniciar sesión' : 'Crear cuenta';
+      authModalTitle.textContent = 'Iniciar sesión';
       loginError.textContent = '';
-      registerError.textContent = '';
       if (forgotError) forgotError.textContent = '';
       if (resetPassError) resetPassError.textContent = '';
       loginForm.reset();
-      registerForm.reset();
       forgotForm.reset();
       resetPassForm.reset();
       resetOtpState();
-      updateRegisterAvailability();
       authModal.classList.add('visible');
     }
 
@@ -751,71 +692,7 @@
       if (e.target === authModal) closeAuthModal();
     });
 
-    // Switch between login/register
-    showRegisterBtn.addEventListener('click', () => {
-      if (isAdminRegistered()) return;
-      loginForm.style.display = 'none';
-      otpForm.style.display = 'none';
-      forgotForm.style.display = 'none';
-      resetPassForm.style.display = 'none';
-      registerForm.style.display = 'block';
-      authModalTitle.textContent = 'Crear cuenta';
-      loginError.textContent = '';
-    });
 
-    showLoginBtn.addEventListener('click', () => {
-      registerForm.style.display = 'none';
-      otpForm.style.display = 'none';
-      forgotForm.style.display = 'none';
-      resetPassForm.style.display = 'none';
-      loginForm.style.display = 'block';
-      authModalTitle.textContent = 'Iniciar sesión';
-      registerError.textContent = '';
-    });
-
-    // Register
-    registerForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const username = $('#regUser').value.trim();
-      const email = $('#regEmail').value.trim();
-      const pass = $('#regPass').value;
-      const passConfirm = $('#regPassConfirm').value;
-
-      if (username.length < 3) {
-        registerError.textContent = 'El usuario debe tener al menos 3 caracteres.';
-        return;
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        registerError.textContent = 'Por favor, ingresá un correo electrónico válido.';
-        return;
-      }
-      if (pass.length < 4) {
-        registerError.textContent = 'La contraseña debe tener al menos 4 caracteres.';
-        return;
-      }
-      if (pass !== passConfirm) {
-        registerError.textContent = 'Las contraseñas no coinciden.';
-        return;
-      }
-
-      if (isAdminRegistered()) {
-        registerError.textContent = 'El registro está cerrado. Solo el admin puede acceder.';
-        return;
-      }
-
-      // First user = admin
-      const authData = {
-        adminUser: username,
-        adminEmail: email,
-        passwordHash: simpleHash(pass)
-      };
-      saveAuth(authData);
-      setSession({ username, isAdmin: true });
-      closeAuthModal();
-      updateAuthUI();
-      showToast('🎉 ¡Cuenta admin creada! Sos el administrador.');
-    });
 
     // Login
     loginForm.addEventListener('submit', (e) => {
@@ -1033,20 +910,13 @@
       const hasRealConfig = config && config.serviceId && config.templateId && config.publicKey;
 
       if (hasRealConfig) {
-        $('#otpSimBadge').style.display = 'none';
         sendRealEmail(otpTargetEmailAddress, otpCode);
+        startOtpTimer();
       } else {
-        // Simulation mode
-        $('#otpSimBadge').style.display = 'flex';
-        $('#otpSimCode').textContent = otpCode;
-        showToast('🔑 Código OTP (Simulado): ' + otpCode);
-        console.log('--- MOCK EMAIL SENDER ---');
-        console.log(`Para: ${otpTargetEmailAddress}`);
-        console.log(`Mensaje: Tu código de verificación para LuxuryFlow es: ${otpCode}`);
-        console.log('-------------------------');
+        showToast('❌ El sistema de correo (EmailJS) no está configurado.');
+        $('#otpError').textContent = 'Falta configuración de EmailJS. Ingresá al Panel Admin para configurarlo.';
+        clearInterval(otpCountdownInterval);
       }
-
-      startOtpTimer();
     }
 
     function sendRealEmail(email, code) {
@@ -1068,10 +938,8 @@
         })
         .catch((err) => {
           console.error('EmailJS Error:', err);
-          showToast('❌ Error de envío. Iniciado en simulación.');
-          // Fallback simulation so user doesn't get locked out
-          $('#otpSimBadge').style.display = 'flex';
-          $('#otpSimCode').textContent = code;
+          showToast('❌ Error de envío de EmailJS.');
+          $('#otpError').textContent = 'Hubo un error al enviar el código a tu correo.';
         });
     }
 
