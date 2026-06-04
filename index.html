@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="LuxuryFlow — Indumentaria premium con estilo minimalista y materiales de alta calidad." />
+  <meta name="description"
+    content="LuxuryFlow — Indumentaria premium con estilo minimalista y materiales de alta calidad." />
   <title>LuxuryFlow — Premium Clothing</title>
   <link rel="stylesheet" href="style.css" />
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
+
 <body>
 
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#home" class="navbar__logo"><span class="logo-luxury">Luxury</span><span class="logo-flow">Flow</span></a>
+      <a href="#home" class="navbar__logo"><span class="logo-luxury">Luxury</span><span
+          class="logo-flow">Flow</span></a>
       <ul class="navbar__links">
         <li><a href="#home" class="navbar__link active" data-section="home">Home</a></li>
         <li><a href="#products" class="navbar__link" data-section="products">Productos</a></li>
@@ -21,7 +25,11 @@
       </ul>
       <div class="navbar__right">
         <button class="navbar__auth-btn" id="navAuthBtn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
           <span id="navAuthText">Iniciar sesión</span>
         </button>
         <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
@@ -34,16 +42,24 @@
       <a href="#products" class="navbar__link" data-section="products">Productos</a>
       <a href="#contacto" class="navbar__link" data-section="contacto">Contacto</a>
       <button class="btn btn--primary btn--small" id="mobileAuthBtn" style="margin-top:16px;">Iniciar sesión</button>
-      
+
       <div class="mobile-menu-footer">
         <p class="mobile-menu-brand">LuxuryFlow</p>
         <div class="mobile-menu-socials">
           <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
             Instagram
           </a>
           <a href="#">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+            </svg>
             TikTok
           </a>
         </div>
@@ -132,11 +148,13 @@
       <p class="contact__text">
         Seguinos en Instagram para ver las últimas novedades, lanzamientos exclusivos y contenido detrás de escena.
       </p>
-      <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer" class="contact__btn-ig" id="igButton">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer"
+        class="contact__btn-ig" id="igButton">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
         </svg>
         Instagram
       </a>
@@ -148,7 +166,8 @@
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
-          <div class="footer__brand-name"><span class="logo-luxury">Luxury</span><span class="logo-flow">Flow</span></div>
+          <div class="footer__brand-name"><span class="logo-luxury">Luxury</span><span class="logo-flow">Flow</span>
+          </div>
           <p class="footer__brand-text">
             Indumentaria premium con diseño minimalista.
           </p>
@@ -168,7 +187,8 @@
         <div>
           <h4 class="footer__col-title">Redes</h4>
           <div class="footer__col-links">
-            <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank"
+              rel="noopener noreferrer">Instagram</a>
             <a href="#">TikTok</a>
           </div>
         </div>
@@ -176,11 +196,20 @@
       <div class="footer__bottom">
         <p class="footer__copyright">© 2026 LuxuryFlow. Todos los derechos reservados.</p>
         <div class="footer__socials">
-          <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://www.instagram.com/indluxuryflow/?hl=" target="_blank" rel="noopener noreferrer"
+            class="footer__social-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
           </a>
           <a href="#" class="footer__social-link" aria-label="TikTok">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+            </svg>
           </a>
         </div>
       </div>
@@ -189,7 +218,12 @@
 
   <!-- ========== ADMIN FAB ========== -->
   <button class="admin-fab hidden" id="adminFab" aria-label="Panel de administración" title="Panel Admin">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path
+        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
   </button>
 
   <!-- ========== TOAST ========== -->
@@ -206,81 +240,121 @@
         <!-- LOGIN FORM -->
         <form id="loginForm">
           <div class="auth-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              <circle cx="12" cy="16" r="1" />
+            </svg>
           </div>
           <div class="form-group">
             <label class="form-label" for="loginUser">Usuario</label>
-            <input type="text" class="form-input" id="loginUser" placeholder="Tu nombre de usuario" required autocomplete="username" />
+            <input type="text" class="form-input" id="loginUser" placeholder="Tu nombre de usuario" required
+              autocomplete="username" />
           </div>
           <div class="form-group" style="margin-bottom:8px;">
             <label class="form-label" for="loginPass">Contraseña</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input" id="loginPass" placeholder="Tu contraseña" required autocomplete="current-password" />
+              <input type="password" class="form-input" id="loginPass" placeholder="Tu contraseña" required
+                autocomplete="current-password" />
               <button type="button" class="password-toggle-btn" aria-label="Mostrar contraseña">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
               </button>
             </div>
             <span class="auth-link" id="forgotPasswordBtn">¿Olvidaste tu contraseña?</span>
           </div>
           <p class="auth-error" id="loginError"></p>
           <div class="form-actions" style="border:none;padding-top:8px;display:flex;flex-direction:column;gap:8px;">
-            <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Ingresar</button>
-            <span class="auth-link" id="showRegister" style="text-align:center;width:100%;">¿No tenés cuenta? Registrate</span>
+            <button type="submit" class="btn btn--primary btn--small"
+              style="width:100%;justify-content:center;">Ingresar</button>
+            <span class="auth-link" id="showRegister" style="text-align:center;width:100%;">¿No tenés cuenta?
+              Registrate</span>
           </div>
         </form>
 
         <!-- REGISTER FORM -->
         <form id="registerForm" style="display:none;">
           <div class="auth-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <line x1="19" y1="8" x2="19" y2="14" />
+              <line x1="22" y1="11" x2="16" y2="11" />
+            </svg>
           </div>
           <div class="form-group">
             <label class="form-label" for="regUser">Usuario</label>
-            <input type="text" class="form-input" id="regUser" placeholder="Elegí un nombre de usuario" required autocomplete="username" />
+            <input type="text" class="form-input" id="regUser" placeholder="Elegí un nombre de usuario" required
+              autocomplete="username" />
           </div>
           <div class="form-group">
             <label class="form-label" for="regEmail">Correo electrónico</label>
-            <input type="email" class="form-input" id="regEmail" placeholder="Tu correo (para recuperar contraseña)" required autocomplete="email" />
+            <input type="email" class="form-input" id="regEmail" placeholder="Tu correo (para recuperar contraseña)"
+              required autocomplete="email" />
           </div>
           <div class="form-group" style="margin-bottom:8px;">
             <label class="form-label" for="regPass">Contraseña</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input" id="regPass" placeholder="Tu contraseña" required autocomplete="new-password" />
+              <input type="password" class="form-input" id="regPass" placeholder="Tu contraseña" required
+                autocomplete="new-password" />
               <button type="button" class="password-toggle-btn" aria-label="Mostrar contraseña">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
               </button>
             </div>
           </div>
           <p class="auth-error" id="registerError"></p>
           <div class="form-actions" style="border:none;padding-top:8px;display:flex;flex-direction:column;gap:8px;">
-            <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Crear cuenta</button>
-            <span class="auth-link" id="showLogin" style="text-align:center;width:100%;">¿Ya tenés cuenta? Iniciá sesión</span>
+            <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Crear
+              cuenta</button>
+            <span class="auth-link" id="showLogin" style="text-align:center;width:100%;">¿Ya tenés cuenta? Iniciá
+              sesión</span>
           </div>
         </form>
 
         <!-- FORGOT PASSWORD FORM -->
         <form id="forgotForm" style="display:none;" onsubmit="return false;">
           <div class="auth-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16" />
+            </svg>
           </div>
           <p class="form-help-text" style="text-align: center; margin-bottom: 20px;">
-            Ingresá tu correo electrónico de administrador registrado para recibir un código de restablecimiento de contraseña.
+            Ingresá tu correo electrónico de administrador registrado para recibir un código de restablecimiento de
+            contraseña.
           </p>
           <div class="form-group">
             <label class="form-label" for="forgotEmail">Email</label>
-            <input type="email" class="form-input" id="forgotEmail" placeholder="ejemplo@gmail.com" required autocomplete="email" />
+            <input type="email" class="form-input" id="forgotEmail" placeholder="ejemplo@gmail.com" required
+              autocomplete="email" />
           </div>
           <p class="auth-error" id="forgotError" style="text-align:center;"></p>
           <div class="form-actions" style="border:none;padding-top:8px;gap:12px;">
-            <button type="button" class="btn btn--secondary btn--small" id="btnForgotBack" style="width:40%;justify-content:center;">Cancelar</button>
-            <button type="submit" class="btn btn--primary btn--small" id="btnForgotSubmit" style="width:60%;justify-content:center;">Enviar código</button>
+            <button type="button" class="btn btn--secondary btn--small" id="btnForgotBack"
+              style="width:40%;justify-content:center;">Cancelar</button>
+            <button type="submit" class="btn btn--primary btn--small" id="btnForgotSubmit"
+              style="width:60%;justify-content:center;">Enviar código</button>
           </div>
         </form>
 
         <!-- RESET PASSWORD FORM -->
         <form id="resetPassForm" style="display:none;">
           <div class="auth-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              <circle cx="12" cy="16" r="1.5" />
+            </svg>
           </div>
           <p class="form-help-text" style="text-align: center; margin-bottom: 20px;">
             Ingresá tu nueva contraseña para acceder al panel.
@@ -288,37 +362,55 @@
           <div class="form-group">
             <label class="form-label" for="resetPass">Nueva contraseña</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input" id="resetPass" placeholder="Mínimo 4 caracteres" required autocomplete="new-password" />
+              <input type="password" class="form-input" id="resetPass" placeholder="Mínimo 4 caracteres" required
+                autocomplete="new-password" />
               <button type="button" class="password-toggle-btn" aria-label="Mostrar contraseña">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
               </button>
             </div>
           </div>
           <div class="form-group">
             <label class="form-label" for="resetPassConfirm">Confirmar nueva contraseña</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input" id="resetPassConfirm" placeholder="Repetí la nueva contraseña" required autocomplete="new-password" />
+              <input type="password" class="form-input" id="resetPassConfirm" placeholder="Repetí la nueva contraseña"
+                required autocomplete="new-password" />
               <button type="button" class="password-toggle-btn" aria-label="Mostrar contraseña">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
               </button>
             </div>
           </div>
           <p class="auth-error" id="resetPassError" style="text-align:center;"></p>
           <div class="form-actions" style="border:none;padding-top:8px;">
-            <button type="submit" class="btn btn--primary btn--small" style="width:100%;justify-content:center;">Restablecer contraseña</button>
+            <button type="submit" class="btn btn--primary btn--small"
+              style="width:100%;justify-content:center;">Restablecer contraseña</button>
           </div>
         </form>
 
         <!-- OTP FORM -->
         <form id="otpForm" style="display:none;" onsubmit="return false;">
           <div class="auth-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              <circle cx="12" cy="16" r="1.5" />
+            </svg>
           </div>
 
           <p class="form-help-text" style="text-align: center; margin-bottom: 8px;">
             Ingresá el código de verificación enviado a tu correo registrado:
           </p>
-          <p id="otpTargetEmail" style="text-align: center; font-weight: 600; font-size: 0.9rem; color: var(--color-gold); margin-bottom: 20px;"></p>
+          <p id="otpTargetEmail"
+            style="text-align: center; font-weight: 600; font-size: 0.9rem; color: var(--color-gold); margin-bottom: 20px;">
+          </p>
 
           <div class="otp-inputs" id="otpInputsContainer">
             <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
@@ -338,7 +430,8 @@
           </div>
 
           <div class="form-actions" style="border:none;padding-top:16px;">
-            <button type="button" class="btn btn--secondary btn--small" id="btnOtpBack" style="width:100%;justify-content:center;">Regresar</button>
+            <button type="button" class="btn btn--secondary btn--small" id="btnOtpBack"
+              style="width:100%;justify-content:center;">Regresar</button>
           </div>
         </form>
       </div>
@@ -437,7 +530,8 @@
       <div class="modal__body">
         <form id="securityForm">
           <p class="form-help-text">
-            Configurá tus credenciales de <strong>EmailJS</strong> para enviar de forma real el código de inicio de sesión a Gmail.
+            Configurá tus credenciales de <strong>EmailJS</strong> para enviar de forma real el código de inicio de
+            sesión a Gmail.
           </p>
           <div class="form-group">
             <label class="form-label" for="secServiceId">Service ID</label>
@@ -449,7 +543,8 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="secPublicKey">Public Key</label>
-            <input type="text" class="form-input" id="secPublicKey" placeholder="Ej: user_xxxxxx o key_xxxxxx" required />
+            <input type="text" class="form-input" id="secPublicKey" placeholder="Ej: user_xxxxxx o key_xxxxxx"
+              required />
           </div>
           <div class="form-actions">
             <button type="button" class="btn btn--secondary btn--small" id="secCancel">Cancelar</button>
@@ -469,7 +564,7 @@
        ============================================== */
     const USERS_KEY = 'luxuryflow_users';
     const SESSION_KEY = 'luxuryflow_session';
-    
+
     // Lista de IDs que tienen privilegios de administrador.
     // Ej: const ADMIN_IDS = ['USER-ABCDE123'];
     const ADMIN_IDS = ['USER-2TDMSB58'];
@@ -518,7 +613,7 @@
       if (!session) return false;
       return ADMIN_IDS.includes(session.id);
     }
-    
+
     function generateUserId() {
       return 'USER-' + Math.random().toString(36).substring(2, 10).toUpperCase();
     }
@@ -773,7 +868,7 @@
         setSession({ id: newUser.id, username: newUser.username });
         closeAuthModal();
         updateAuthUI();
-        
+
         alert(`¡Registro exitoso!\n\nTu ID de usuario es:\n${newUser.id}\n\nGuarda este ID, puedes usarlo para recibir permisos de administrador.`);
         showToast('✅ ¡Bienvenido, ' + newUser.username + '!');
       });
@@ -841,11 +936,11 @@
 
       // Start OTP verification for Reset Flow
       otpFlowType = 'reset';
-      
+
       forgotForm.style.display = 'none';
       otpForm.style.display = 'block';
       authModalTitle.textContent = 'Restablecer contraseña';
-      
+
       otpTargetEmailAddress = user.email;
       otpUserSessionTemp = user;
       $('#otpTargetEmail').textContent = obfuscateEmail(email);
@@ -856,7 +951,7 @@
       otpInputs.forEach(inp => inp.value = '');
 
       generateAndSendOTP();
-      
+
       setTimeout(() => otpInputs[0].focus(), 100);
     });
 
@@ -901,7 +996,7 @@
         const input = btn.previousElementSibling;
         const isPassword = input.type === 'password';
         input.type = isPassword ? 'text' : 'password';
-        
+
         if (isPassword) {
           btn.innerHTML = `
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
@@ -935,7 +1030,7 @@
       try {
         const data = localStorage.getItem(SECURITY_KEY);
         if (data) return JSON.parse(data);
-      } catch {}
+      } catch { }
       // Valores por defecto
       return {
         serviceId: 'service_ljyollk',
@@ -1016,11 +1111,13 @@
       const config = loadSecurityConfig();
       if (!config) return;
 
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
       const templateParams = {
         to_email: email,
-        to_name: 'Administrador LuxuryFlow',
-        code: code,
-        message: `Tu código de verificación de inicio de sesión de LuxuryFlow es: ${code}. El código expira en 5 minutos.`,
+        passcode: code,
+        time: timeString
       };
 
       showToast('📨 Enviando código a tu Gmail...');
@@ -1439,11 +1536,11 @@
             <h3 class="products__empty-title">${products.length === 0 ? 'Sin productos aún' : 'Sin resultados'}</h3>
             <p class="products__empty-text">
               ${products.length === 0
-                ? (isLoggedInAsAdmin()
-                  ? 'Activá el modo admin con el botón ⚙️ y agregá tu primer producto.'
-                  : 'Próximamente nuevos productos.')
-                : 'No hay productos en esta categoría.'
-              }
+            ? (isLoggedInAsAdmin()
+              ? 'Activá el modo admin con el botón ⚙️ y agregá tu primer producto.'
+              : 'Próximamente nuevos productos.')
+            : 'No hay productos en esta categoría.'
+          }
             </p>
           </div>
         `;
@@ -1539,4 +1636,5 @@
   </script>
 
 </body>
+
 </html>
